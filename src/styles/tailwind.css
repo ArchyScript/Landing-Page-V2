@@ -1,0 +1,63 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-primary: #0a8b56;
+  --color-primary-100: #0d965e;
+
+  --color-neutral-50: #d6d6d6;
+  --color-neutral-50-50: #d6d6d650;
+  --color-neutral-70: #767676;
+  --color-neutral-80: #575757;
+  --color-neutral-90: #434343;
+  --color-neutral-100: #080808;
+  --color-black-90: #00000090;
+  --color-brand: #1f6b4f;
+  --color-brand-50: #eefaf4;
+  --color-brand-100: #d8f3e6;
+  --color-brand-200: #b4e7cf;
+  --color-brand-300: #83d2ad;
+  --color-brand-400: #4fb785;
+  --color-brand-500: #2f9668;
+  --color-brand-600: #1f6b4f;
+  --color-brand-700: #1b5742;
+  --color-brand-800: #184637;
+  --color-brand-900: #143a30;
+  --color-theme-ink: #10231d;
+  --color-theme-muted: #5f716b;
+  --color-theme-muted-bg: #fafafa;
+  --color-theme-line: #d9e4df;
+  --color-theme-canvas: #fbfefc;
+  --color-theme-surface: #ffffff;
+  --color-theme-accent: #f4b740;
+  --color-state-success: #129b64;
+  --color-state-warning: #f4b740;
+  --color-state-danger: #e5484d;
+  --color-border-dark: #d9d9d9;
+  --color-border-neutral: #e6e6e6;
+
+  --font-sans: Poppins, Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-display: Poppins, Inter, ui-sans-serif, system-ui, sans-serif;
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --text-xs: 0.7rem;
+  --text-sm: 0.8rem;
+  --text-base: 0.9rem;
+  --text-lg: 1rem;
+  --text-xl: 1.125rem;
+  --text-2xl: 1.35rem;
+  --text-3xl: 1.65rem;
+  --text-4xl: 2rem;
+  --text-5xl: 2.5rem;
+  --text-6xl: 3rem;
+}
+
+@utility container-page {
+  width: min(100% - 2rem, 72rem);
+  margin-inline: auto;
+}
+
+@utility focus-ring {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgb(31 107 79 / 0.28);
+}

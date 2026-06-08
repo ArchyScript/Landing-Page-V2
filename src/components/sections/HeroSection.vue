@@ -1,0 +1,130 @@
+<script setup lang="ts">
+import { onBeforeUnmount, onMounted, ref } from 'vue';
+import gsap from 'gsap';
+import ImageLoader from '@/components/common/ImageLoader.vue';
+import AppButton from '@/components/common/AppButton.vue';
+import LandingSection from '@/components/common/LandingSection.vue';
+
+const heroRoot = ref<HTMLElement>();
+let heroContext: gsap.Context | undefined;
+
+onMounted(() => {
+  if (!heroRoot.value) return;
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    gsap.set(heroRoot.value.querySelectorAll('.hero-animate'), {
+      clearProps: 'all',
+    });
+    return;
+  }
+
+  heroContext = gsap.context(() => {
+    const timeline = gsap.timeline({
+      defaults: {
+        duration: 0.78,
+        ease: 'power3.out',
+      },
+    });
+
+    timeline
+      .from('.hero-pill', { autoAlpha: 0, y: 16 })
+      .from('.hero-title', { autoAlpha: 0, y: 24 }, '-=0.58')
+      .from('.hero-copy', { autoAlpha: 0, y: 20 }, '-=0.55')
+      .from('.hero-cta', { autoAlpha: 0, y: 16 }, '-=0.52')
+      .from(
+        '.hero-device',
+        {
+          autoAlpha: 0,
+          y: 42,
+          scale: 0.985,
+          duration: 0.95,
+        },
+        '-=0.38',
+      );
+  }, heroRoot.value);
+});
+
+onBeforeUnmount(() => {
+  heroContext?.revert();
+});
+</script>
+
+<template>
+  <LandingSection
+    id="top"
+    :reveal="false"
+    class-name="bg-[#f7f7f7] pt-12 sm:bg-white sm:pt-20"
+  >
+    <div ref="heroRoot" class="container-page text-center">
+      <span
+        class="hero-pill hero-animate inline-flex max-w-full whitespace-nowrap rounded-full border border-neutral-50 bg-white px-2 py-2 text-[10px] font-medium text-black min-[400px]:px-3 min-[400px]:text-xs sm:px-4 sm:text-sm"
+      >
+        Supports over 30+ African currencies & your USDT/USDC
+      </span>
+
+      <h1
+        class="hero-title hero-animate mx-auto mt-12 max-w-4xl font-display font-semibold text-neutral-100 sm:mt-8"
+      >
+        <span
+          class="block whitespace-nowrap text-[2rem] leading-none min-[480px]:text-[2.5rem] md:text-[3.25rem] lg:text-[4rem]"
+        >
+          <span>SPEND</span>
+          <span class="text-primary-100"> AFRICAN</span>
+        </span>
+
+        <span
+          class="mt-3 block text-[2rem] leading-none min-[480px]:text-[2.5rem] md:mt-0 md:inline-block md:text-[3.25rem] lg:text-[4rem]"
+        >
+          <span class="text-primary-100">CURRENCY</span><span>.</span>
+        </span>
+
+        <span
+          class="mx-auto mt-8 flex w-fit -rotate-[6deg] items-center gap-2 rounded-full bg-primary py-2 pl-2 pr-6 sm:mt-3 sm:inline-flex sm:py-1 sm:pl-1"
+        >
+          <img
+            src="/images/globe.png"
+            alt=""
+            class="h-12 w-12 shrink-0 rounded-full object-cover min-[480px]:h-16 min-[480px]:w-16 sm:h-[66px] sm:w-[66px]"
+          />
+          <strong
+            class="whitespace-nowrap text-[1.5rem] font-semibold leading-none text-white min-[480px]:text-[2rem] md:text-[2.25rem] lg:text-[2.6rem]"
+          >
+            ANYWHERE!
+          </strong>
+        </span>
+      </h1>
+
+      <p
+        class="hero-copy hero-animate mx-auto mt-12 max-w-[32rem] text-base leading-7 text-neutral-90 sm:mt-8"
+      >
+        No need to convert your African currency when you leave your country,
+        download Greep pay. Top-up your wallet, send money home, and spend
+        Anywhere! Anytime!
+      </p>
+
+      <AppButton
+        class="hero-cta hero-animate mt-12 px-8 py-4 text-sm sm:mt-8"
+        href="#download"
+      >
+        Download GreepPay
+      </AppButton>
+
+      <div
+        class="hero-device hero-animate mx-auto mt-16 grid h-[30rem] items-start justify-items-center overflow-hidden sm:mt-14 lg:mt-20"
+      >
+        <ImageLoader
+          photo-url="/images/home-green-bg.png"
+          alt="GreepPay mobile app home screen"
+          fit="contain"
+          custom-class="overflow-hidden hidden sm:block"
+        />
+        <ImageLoader
+          photo-url="/images/home.png"
+          alt="GreepPay mobile app home screen"
+          fit="contain"
+          custom-class="overflow-hidden block sm:hidden"
+        />
+      </div>
+    </div>
+  </LandingSection>
+</template>
