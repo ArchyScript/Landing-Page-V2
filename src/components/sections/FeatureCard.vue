@@ -58,7 +58,7 @@ defineEmits<{ toggle: [] }>();
     @keydown.space.prevent="$emit('toggle')"
   >
     <div
-      class="feature-card-content grid h-[30rem] sm:h-[36rem] md:h-[40rem] lg:h-[46rem] lg:grid-cols-[0.38fr_0.62fr]"
+      class="feature-card-content grid h-[28rem] sm:h-[30rem] md:h-[36rem] lg:grid-cols-[0.38fr_0.62fr]"
     >
       <div class="p-4 sm:p-6 lg:p-10">
         <h3
@@ -71,7 +71,7 @@ defineEmits<{ toggle: [] }>();
           <p
             v-for="(description, index) in descriptions"
             :key="index"
-            class="text-xs sm:text-sm lg:text-base leading-5 sm:leading-6 text-neutral-800"
+            class="text-xs sm:text-base lg:text-lg leading-5 sm:leading-6 text-neutral-800"
           >
             {{ description }}
           </p>
@@ -80,7 +80,7 @@ defineEmits<{ toggle: [] }>();
 
       <div
         ref="featureVisual"
-        class="flex items-end flex-col h-[28rem] sm:h-[30rem] md:h-[36rem] rounded-t-2xl"
+        class="flex items-end flex-col h-[28rem] sm:h-[30rem] md:h-[36rem] rounded-t-2xl pt-4 lg:px-6 lg:pt-10"
       >
         <ImageLoader
           :photo-url="imageSrc"

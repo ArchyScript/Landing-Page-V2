@@ -26,7 +26,7 @@ defineProps<{
 
       <div
         data-gsap-stagger
-        class="reveal-item delay-1 grid overflow-hidden border border-theme-line md:grid-cols-2 lg:grid-cols-4"
+        class="reveal-item delay-1 grid overflow-hidden border-[0.5px] border-theme-line   md:grid-cols-2 lg:grid-cols-4"
       >
         <UseCaseCard
           v-for="useCase in useCases"

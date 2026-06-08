@@ -115,14 +115,14 @@ onBeforeUnmount(() => {
         <ImageLoader
           photo-url="/images/home-green-bg.png"
           alt="GreepPay mobile app home screen"
-          fit="contain"
-          custom-class="overflow-hidden hidden sm:block"
+          fit="cover"
+          custom-class="overflow-hidden hidden md:block"
         />
         <ImageLoader
           photo-url="/images/home.png"
           alt="GreepPay mobile app home screen"
           fit="contain"
-          custom-class="overflow-hidden block sm:hidden"
+          custom-class="overflow-hidden block   md:hidden"
         />
       </div>
     </div>
