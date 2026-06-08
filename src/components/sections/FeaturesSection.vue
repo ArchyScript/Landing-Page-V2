@@ -63,7 +63,11 @@ const toggleFeature = (index: number) => {
         </button>
       </div>
 
-      <div id="cards" data-gsap-stagger class="reveal-item delay-2 mt-12">
+      <div
+        id="cards"
+        data-gsap-stagger
+        class="reveal-item delay-2 mt-12 flex flex-col"
+      >
         <FeatureCard
           v-for="(feature, index) in features"
           :key="`${activeAudience}-${feature.title}`"

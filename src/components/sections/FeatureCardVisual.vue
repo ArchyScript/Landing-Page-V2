@@ -7,12 +7,12 @@ defineProps<{
 
 <template>
   <div
-    class="grid min-h-80 place-items-center overflow-hidden lg:min-h-[28rem]"
+    class="h-[24rem] sm:h-[28rem] md:h-[32rem] lg:h-[36rem]   w-full overflow-hidden"
   >
     <ImageLoader
       :photo-url="imageSrc"
       :alt="imageAlt"
-      fit="contain"
+      fit="cover"
       custom-class="block h-full w-full overflow-hidden"
     />
   </div>

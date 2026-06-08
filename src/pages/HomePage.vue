@@ -43,7 +43,6 @@ import {
     <TestimonialSection :testimonials="testimonials" />
 
     <CurrencyCtaSection :currencies="availableCurrencies" />
- `1`
 
     <UseCasesSection :use-cases="useCases" />
 

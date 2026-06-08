@@ -39,9 +39,7 @@ watch(
   },
 );
 
-defineEmits<{
-  toggle: [];
-}>();
+defineEmits<{ toggle: [] }>();
 </script>
 
 <template>
@@ -60,29 +58,37 @@ defineEmits<{
     @keydown.space.prevent="$emit('toggle')"
   >
     <div
-      class="feature-card-content grid min-h-[31rem] lg:grid-cols-[0.38fr_0.62fr]"
+      class="feature-card-content grid h-[30rem] sm:h-[36rem] md:h-[40rem] lg:h-[46rem] lg:grid-cols-[0.38fr_0.62fr]"
     >
-      <div class="px-6 py-7 lg:px-10 lg:py-10">
-        <h3 class="text-xl font-semibold leading-tight text-black">
+      <div class="p-6 lg:p-10">
+        <h3
+          class="text-lg md:text-xl font-semibold leading-tight text-neutral-100"
+        >
           {{ title }}
         </h3>
 
-        <div class="mt-3 max-w-sm">
+        <div class="mt-2 sm:mt-3 max-w-sm">
           <p
             v-for="(description, index) in descriptions"
             :key="index"
-            class="text-sm leading-6 text-theme-muted"
+            class="text-sm md:text-base leading-5 sm:leading-6 text-neutral-800"
           >
             {{ description }}
           </p>
         </div>
       </div>
 
-      <div ref="featureVisual" class="min-h-80 lg:min-h-[31rem]">
-        <FeatureCardVisual
-          :image-src="imageSrc"
-          :image-alt="imageAlt"
+      <div
+        ref="featureVisual"
+        class="flex items-end flex-col h-[28rem] sm:h-[30rem] md:h-[36rem] rounded-t-2xl"
+      >
+        <ImageLoader
+          :photo-url="imageSrc"
+          :alt="imageAlt"
+          fit="cover"
+          custom-class="block h-full w-full overflow-hidden rounded-t-2xl"
         />
+        <!-- <FeatureCardVisual :image-src="imageSrc" :image-alt="imageAlt" /> -->
       </div>
     </div>
   </article>
