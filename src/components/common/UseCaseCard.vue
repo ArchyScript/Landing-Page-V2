@@ -12,19 +12,29 @@ defineProps<{
 
 <template>
   <article
-    class="grid min-h-[25rem] grid-rows-[12rem_1fr] border-[0.5px] border-border-dark transition duration-300 ease-smooth hover:-translate-y-0.5 [&+&]:border-t md:[&+&]:border-l md:[&+&]:border-t-0"
+    class="grid min-h-fit border-[0.5px] border-white transition duration-300 ease-smooth hover:-translate-y-0.5"
   >
-    <h3 class="p-6 text-lg font-bold leading-7 text-neutral-100 md:p-8 md:text-xl md:leading-8">
+    <h3
+      class="p-8 text-lg font-semibold leading-6 text-neutral-100 md:p-8 md:text-xl md:leading-8"
+    >
       {{ title }}
     </h3>
 
-    <div class="min-h-66">
-      <PlaceholderImage
+    <div class="min-h-[18rem]">
+      <ImageLoader
+        :photo-url="imageSrc"
+        :src="imageSrc"
+        :alt="imageAlt"
+        :label="imageLabel"
+        fit="cover"
+      />
+      <!-- <PlaceholderImage
         :src="imageSrc"
         :alt="imageAlt"
         :label="imageLabel"
         :tone="tone"
-      />
+        fit="cover"
+      /> -->
     </div>
   </article>
 </template>

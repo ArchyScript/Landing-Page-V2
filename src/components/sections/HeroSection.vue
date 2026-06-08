@@ -53,7 +53,7 @@ onBeforeUnmount(() => {
   <LandingSection
     id="top"
     :reveal="false"
-    class-name="bg-[#f7f7f7] pt-12 sm:bg-white sm:pt-20"
+    class-name="bg-[#f7f7f7] py-12 md:py-16 lg:py-20"
   >
     <div ref="heroRoot" class="container-page text-center">
       <span

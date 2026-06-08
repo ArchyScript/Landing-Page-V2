@@ -37,7 +37,7 @@ const toggleFeature = (index: number) => {
 </script>
 
 <template>
-  <LandingSection id="features" class-name="pt-10 pb-20">
+  <LandingSection id="features" class-name="py-12 md:py-16 lg:py-20">
     <div class="container-page">
       <SectionIntro
         green-text="Everything You Need."

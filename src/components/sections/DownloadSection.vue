@@ -5,7 +5,7 @@ import StoreButton from '@/components/common/StoreButton.vue';
 </script>
 
 <template>
-  <LandingSection id="download" class-name="py-20 text-center">
+  <LandingSection id="download" class-name="py-12  md:py-16 lg:py-20 text-center">
     <div class="container-page">
       <BrandLogo class="reveal-item mx-auto mb-8" />
 
@@ -26,8 +26,16 @@ import StoreButton from '@/components/common/StoreButton.vue';
       </p>
 
       <div class="reveal-item delay-3 mt-8 flex justify-center gap-4">
-        <StoreButton href="#" icon="apple" label="App Store" />
-        <StoreButton href="#" icon="google-play" label="Google Play" />
+        <StoreButton
+          href="https://greep.io/download"
+          icon="apple"
+          label="App Store"
+        />
+        <StoreButton
+          href="https://greep.io/download"
+          icon="google-play"
+          label="Google Play"
+        />
       </div>
     </div>
   </LandingSection>

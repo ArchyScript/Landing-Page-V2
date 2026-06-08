@@ -7,7 +7,7 @@ defineProps<{
 
 <template>
   <div
-    class="h-[24rem] sm:h-[28rem] md:h-[32rem] lg:h-[36rem]   w-full overflow-hidden"
+    class="h-[24rem] sm:h-[28rem] md:h-[32rem] lg:h-[36rem] w-full overflow-hidden"
   >
     <ImageLoader
       :photo-url="imageSrc"

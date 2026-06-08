@@ -59,7 +59,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <LandingSection id="testimonials" class-name="py-20">
+  <LandingSection id="testimonials" class-name="py-12  md:py-16 lg:py-20">
     <div class="container-page">
       <SectionIntro
         eyebrow="Trusted by thousands of users managing their money smarter."

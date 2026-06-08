@@ -34,7 +34,6 @@ import {
       :individual-features="individualFeatures"
       :merchant-features="merchantFeatures"
     />
-    <!--  -->
 
     <BenefitsSection />
 

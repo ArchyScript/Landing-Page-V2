@@ -10,7 +10,7 @@ defineProps<{
 </script>
 
 <template>
-  <LandingSection class-name="py-16">
+  <LandingSection class-name="py-12  md:py-16 lg:py-20">
     <div class="container-page">
       <div
         class="reveal-item mb-10 flex flex-col justify-between gap-6 lg:flex-row lg:items-center"

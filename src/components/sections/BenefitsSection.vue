@@ -23,7 +23,7 @@ const moneyInMinutes = [
 </script>
 
 <template>
-  <LandingSection id="benefits" class-name="py-10">
+  <LandingSection id="benefits" class-name="py-12  md:py-16 lg:py-20">
     <div class="container-page">
       <SectionIntro
         green-text="Money in Minutes."
@@ -33,15 +33,22 @@ const moneyInMinutes = [
 
       <div
         data-gsap-stagger
-        class="reveal-item delay-1 mt-14 grid overflow-hidden rounded-3xl bg-primary-100 text-white lg:grid-cols-[0.8fr_1.2fr]"
+        class="reveal-item delay-1 mt-14 grid overflow-hidden rounded-2xl sm:rounded-3xl bg-primary-100 text-white lg:grid-cols-[0.8fr_1.2fr]"
       >
-        <div class="grid gap-12 p-6 lg:p-12">
-          <div v-for="(benefit, index) in moneyInMinutes" :key="index">
-            <UiIcon :name="benefit.icon" custom-class="h-8 w-8" />
-            <h3 class="mt-2 text-2xl font-medium text-white md:text-3xl">
+        <div class="grid gap-6 md:gap-8 lg:gap-12 p-6 lg:p-12">
+          <div
+            v-for="(benefit, index) in moneyInMinutes"
+            :key="index"
+            class="flex flex-col gap-2 items-start"
+          >
+            <UiIcon
+              :name="benefit.icon"
+              custom-class="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8"
+            />
+            <h3 class="text-xl font-medium text-white md:text-2xl lg:text-3xl">
               {{ benefit.title }}
             </h3>
-            <p class="mt-2 text-white">
+            <p class="text-white text-sm sm:text-base md:text-lg">
               {{ benefit.description }}
             </p>
           </div>

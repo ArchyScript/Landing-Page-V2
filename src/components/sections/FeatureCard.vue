@@ -45,7 +45,7 @@ defineEmits<{ toggle: [] }>();
 <template>
   <article
     :id="panelId"
-    class="feature-card relative cursor-pointer overflow-hidden rounded-3xl border border-theme-line bg-white shadow-[0_18px_60px_rgb(16_35_29_/_0.07)] focus:outline-none focus-visible:shadow-[inset_0_0_0_3px_rgb(31_107_79_/_0.28)]"
+    class="feature-card relative cursor-pointer overflow-hidden rounded-xl md:rounded-2xl lg:rounded-3xl border border-theme-line bg-white shadow-[0_18px_60px_rgb(16_35_29_/_0.07)] focus:outline-none focus-visible:shadow-[inset_0_0_0_3px_rgb(31_107_79_/_0.28)]"
     :class="{
       'is-active z-10 shadow-[0_24px_80px_rgb(16_35_29_/_0.11)]': isActive,
     }"
@@ -60,9 +60,9 @@ defineEmits<{ toggle: [] }>();
     <div
       class="feature-card-content grid h-[30rem] sm:h-[36rem] md:h-[40rem] lg:h-[46rem] lg:grid-cols-[0.38fr_0.62fr]"
     >
-      <div class="p-6 lg:p-10">
+      <div class="p-4 sm:p-6 lg:p-10">
         <h3
-          class="text-lg md:text-xl font-semibold leading-tight text-neutral-100"
+          class="text-lg sm:text-xl lg:text-2xl font-semibold leading-tight text-neutral-100"
         >
           {{ title }}
         </h3>
@@ -71,7 +71,7 @@ defineEmits<{ toggle: [] }>();
           <p
             v-for="(description, index) in descriptions"
             :key="index"
-            class="text-sm md:text-base leading-5 sm:leading-6 text-neutral-800"
+            class="text-xs sm:text-sm lg:text-base leading-5 sm:leading-6 text-neutral-800"
           >
             {{ description }}
           </p>

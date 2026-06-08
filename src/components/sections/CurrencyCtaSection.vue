@@ -17,7 +17,7 @@ withDefaults(
 </script>
 
 <template>
-  <LandingSection id="currency-cta" class-name="pt-10 pb-20">
+  <LandingSection id="currency-cta" class-name="py-12  md:py-16 lg:py-20">
     <div class="container-page">
       <div
         class="reveal-item relative min-h-[32rem] overflow-hidden rounded text-white md:min-h-[40rem]"
