@@ -30,8 +30,16 @@ const socialLinks = [
 
 const legalLinks = [
   {
-    label: 'Savings Risk Disclosure',
+    label: 'Terms & Conditions',
     href: `${import.meta.env.BASE_URL}terms`,
+  },
+  {
+    label: 'Privacy Policy',
+    href: `${import.meta.env.BASE_URL}privacy`,
+  },
+  {
+    label: 'Savings Policy',
+    href: `${import.meta.env.BASE_URL}savings-policy`,
   },
 ];
 </script>
