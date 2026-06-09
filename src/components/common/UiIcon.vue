@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import { assetUrl } from "@/utils/assets";
 
 const props = withDefaults(
   defineProps<{
@@ -21,10 +22,8 @@ const props = withDefaults(
   },
 );
 
-const basePath = import.meta.env.VITE_APP_BASE_URL || "/";
-
 const iconSrc = computed(
-  () => `${basePath}images/icons/${props.name}.${props.extension}`,
+  () => assetUrl(`images/icons/${props.name}.${props.extension}`),
 );
 
 const imgClass = computed(() => {

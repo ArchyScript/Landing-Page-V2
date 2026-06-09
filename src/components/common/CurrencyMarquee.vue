@@ -2,6 +2,7 @@
 import { computed, nextTick, onBeforeUnmount, onMounted, ref } from 'vue';
 import gsap from 'gsap';
 import type { AvailableCurrency } from '@/data/currencies';
+import { assetUrl } from '@/utils/assets';
 
 const props = withDefaults(
   defineProps<{
@@ -51,7 +52,9 @@ const iconNames: Record<string, string> = {
 };
 
 const iconPath = (currency: AvailableCurrency) =>
-  `/images/icons/flags/${iconNames[currency.code] || currency.code.toLowerCase()}.${currency.icon_extension}`;
+  assetUrl(
+    `images/icons/flags/${iconNames[currency.code] || currency.code.toLowerCase()}.${currency.icon_extension}`,
+  );
 
 const marqueeCurrencies = computed(() =>
   props.currencies.filter((currency) => currency.code !== 'BIF'),

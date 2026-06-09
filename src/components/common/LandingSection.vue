@@ -18,14 +18,14 @@ withDefaults(
     v-if="reveal"
     v-reveal
     :id="id"
-    :class="className"
+    :class="['border-b border-theme-line', className]"
   >
     <slot />
   </section>
   <section
     v-else
     :id="id"
-    :class="className"
+    :class="['border-b border-theme-line', className]"
   >
     <slot />
   </section>

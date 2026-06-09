@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from 'vue';
+import { assetUrl } from '@/utils/assets';
 
 const props = withDefaults(
   defineProps<{
@@ -29,13 +30,11 @@ const hasError = ref(false);
 const loadedImage = ref('');
 const previewIsOpen = ref(false);
 
-const basePath = import.meta.env.VITE_APP_BASE_URL || '/';
-
 const source = computed(() => props.photoUrl || props.src);
 const imageUrl = computed(() => {
   if (!source.value) return '';
   if (source.value.startsWith('/images/')) {
-    return source.value.replace(/^\/(?!\/)/, basePath);
+    return assetUrl(source.value);
   }
   return source.value;
 });

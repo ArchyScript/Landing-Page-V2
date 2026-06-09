@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { assetUrl } from '@/utils/assets';
+
 withDefaults(
   defineProps<{
     href?: string;
@@ -17,6 +19,10 @@ withDefaults(
     :href="href"
     :aria-label="`${label} home`"
   >
-    <img class="h-8 w-[7.375rem] object-contain" src="/images/icons/greep-ful-logo.svg" :alt="label" />
+    <img
+      class="h-8 w-[7.375rem] object-contain"
+      :src="assetUrl('images/icons/greep-ful-logo.svg')"
+      :alt="label"
+    />
   </a>
 </template>

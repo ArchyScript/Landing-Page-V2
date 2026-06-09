@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import ImageLoader from '@/components/common/ImageLoader.vue';
 import AppButton from '@/components/common/AppButton.vue';
 import LandingSection from '@/components/common/LandingSection.vue';
+import { assetUrl } from '@/utils/assets';
 
 const heroRoot = ref<HTMLElement>();
 let heroContext: gsap.Context | undefined;
@@ -75,14 +76,14 @@ onBeforeUnmount(() => {
         <span
           class="mt-3 block text-[2rem] leading-none min-[480px]:text-[2.5rem] md:mt-0 md:inline-block md:text-[3.25rem] lg:text-[4rem]"
         >
-          <span class="text-primary-100">CURRENCY</span><span>.</span>
+          <span class="text-primary-100">CURRENCY</span><span>•</span>
         </span>
 
         <span
           class="mx-auto mt-8 flex w-fit -rotate-[6deg] items-center gap-2 rounded-full bg-primary py-2 pl-2 pr-6 sm:mt-3 sm:inline-flex sm:py-1 sm:pl-1"
         >
           <img
-            src="/images/globe.png"
+            :src="assetUrl('images/globe.png')"
             alt=""
             class="h-10 w-10 shrink-0 rounded-full object-cover min-[480px]:h-12 min-[480px]:w-12 sm:h-[60px] sm:w-[60px]"
           />
