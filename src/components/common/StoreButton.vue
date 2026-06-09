@@ -5,6 +5,7 @@ withDefaults(
     label: string;
     icon?: string;
     target?: string;
+    customClass?: string;
   }>(),
   {
     target: '_blank',
@@ -18,6 +19,7 @@ withDefaults(
     :href="href"
     :target="target"
     rel="noopener noreferrer"
+    :class="customClass"
   >
     <UiIcon
       v-if="icon"

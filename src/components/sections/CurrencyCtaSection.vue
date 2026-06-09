@@ -49,6 +49,7 @@ withDefaults(
             <StoreButton
               :href="DOWNLOAD_URL"
               label="Download GreepPay"
+              custom-class="!text-neutral-100"
             />
           </div>
         </div>

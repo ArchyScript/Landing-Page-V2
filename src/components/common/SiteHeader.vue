@@ -93,7 +93,9 @@ onBeforeUnmount(() => {
     ref="siteHeader"
     class="sticky top-0 z-50 w-full border-b border-theme-line/80 bg-white/90 backdrop-blur-[18px]"
   >
-    <nav class="container-page flex h-16 items-center justify-between">
+    <nav
+      class="container-page flex h-16 items-center justify-between [border-inline:0]"
+    >
       <BrandLogo />
 
       <div class="hidden items-center gap-8 lg:flex">
@@ -133,7 +135,7 @@ onBeforeUnmount(() => {
         class="mobile-menu-panel fixed inset-0 z-50 min-h-screen bg-white lg:hidden"
       >
         <div
-          class="container-page flex h-16 items-center justify-between border-b border-theme-line/80"
+          class="container-page flex h-16 items-center justify-between border-b border-theme-line/80 [border-inline:0]"
         >
           <BrandLogo @click="closeMobileMenu" />
 
@@ -145,7 +147,7 @@ onBeforeUnmount(() => {
         </div>
 
         <div
-          class="container-page flex min-h-[calc(100vh-4rem)] flex-col items-start pt-8"
+          class="container-page flex min-h-[calc(100vh-4rem)] flex-col items-start pt-8 [border-inline:0]"
         >
           <NavLinkItem
             v-for="link in links"
