@@ -4,6 +4,7 @@ import LandingSection from '@/components/common/LandingSection.vue';
 import SectionIntro from '@/components/common/SectionIntro.vue';
 import StepCard from '@/components/common/StepCard.vue';
 import type { Step } from '@/data/landing';
+import { DOWNLOAD_URL, EXTERNAL_LINK_TARGET } from '@/data/links';
 
 defineProps<{
   steps: Step[];
@@ -11,8 +12,8 @@ defineProps<{
 </script>
 
 <template>
-  <LandingSection class-name="py-12  md:py-16 lg:py-20">
-    <div class="container-page">
+  <LandingSection>
+    <div class="container-page container-y-padding">
       <SectionIntro
         eyebrow="How It Works"
         title="Three steps from signup to spending."
@@ -27,18 +28,20 @@ defineProps<{
           v-for="(step, index) in steps"
           :key="step.title"
           :index="index"
-          :="step"
           :title="step.title"
-          :text="step.text"
           :image-src="step.imageSrc"
           :descriptions="step.descriptions"
+          :extra-text="step.extraText"
+          :is-bullet="step.isBullet"
           :image-alt="step.imageAlt"
           :image-label="step.imageLabel"
         />
       </div>
 
       <div class="mt-10 md:mt-12 lg:mt-16 text-center">
-        <AppButton href="#download">Download GreepPay</AppButton>
+        <AppButton :href="DOWNLOAD_URL" :target="EXTERNAL_LINK_TARGET">
+          Download GreepPay
+        </AppButton>
       </div>
     </div>
   </LandingSection>

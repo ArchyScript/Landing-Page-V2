@@ -7,22 +7,13 @@ export type Audience = 'individual' | 'merchant';
 
 export type Feature = {
   title: string;
-  description?: string;
   descriptions: string[];
-  note?: string;
   imageSrc: string;
   imageAlt: string;
-  imageLabel: string;
-};
-
-export type Stat = {
-  value: string;
-  label: string;
 };
 
 export type Step = {
   title: string;
-  text: string;
   isBullet?: boolean;
   descriptions?: string[];
   extraText?: string;
@@ -43,7 +34,6 @@ export type UseCase = {
   imageSrc: string;
   imageAlt: string;
   imageLabel: string;
-  tone: 'mint' | 'green' | 'dark' | 'warm' | 'neutral';
 };
 
 export const navLinks: NavLink[] = [
@@ -58,43 +48,35 @@ export const individualFeatures: Feature[] = [
   {
     title: 'Get Your Virtual Card',
     descriptions: [
-      'Get a Visa or Master card, top it up with whatever you have. ',
-      ' Your local fiat, stable coins, or peer-to-peer transfers.',
+      'Get a Visa or Mastercard and top it up with whatever you have.',
+      'Use local fiat, stablecoins, or peer-to-peer transfers.',
     ],
-    note: 'Instant cards',
-    imageSrc: '/images/feat/virtual-card.png',
+    imageSrc: '/images/feat/virtual-card.webp',
     imageAlt: 'GreepPay virtual card stack',
-    imageLabel: 'Virtual card image',
   },
   {
     title: 'Shop Across Borders',
     descriptions: [
       'Find services or products you require as a user, and directly pay from the app.',
     ],
-    note: 'Global checkout',
-    imageSrc: '/images/feat/shop-explore.png',
+    imageSrc: '/images/feat/shop-explore.webp',
     imageAlt: 'GreepPay shopping and explore app screen',
-    imageLabel: 'Shop across borders app image',
   },
   {
     title: 'Get A Virtual Account',
     descriptions: [
       'Hold a USD, EUR, or GBP virtual account in your name. Receive money without opening a traditional bank account.',
     ],
-    note: 'Multi-currency',
-    imageSrc: '/images/feat/virtual-account.png',
+    imageSrc: '/images/feat/virtual-account.webp',
     imageAlt: 'GreepPay virtual account app screen',
-    imageLabel: 'Virtual account app image',
   },
   {
     title: 'Get Yields On Your Savings',
     descriptions: [
       "Track your savings, set goals, and build better financial habits with Greep Pay's smart savings tools.",
     ],
-    note: 'Smart savings',
-    imageSrc: '/images/feat/goal-details.png',
+    imageSrc: '/images/feat/goal-details.webp',
     imageAlt: 'GreepPay savings goal app screen',
-    imageLabel: 'Savings app image',
   },
 ];
 
@@ -104,52 +86,38 @@ export const merchantFeatures: Feature[] = [
     descriptions: [
       'Showcase your products or services on our in-app marketplace and start selling to a customer base actively looking for you.',
     ],
-    note: 'Merchant checkout',
-    imageSrc: '/images/feat/business-marketplace.png',
+    imageSrc: '/images/feat/business-marketplace.webp',
     imageAlt: 'GreepPay merchant payment screen',
-    imageLabel: 'Merchant payment app image',
   },
   {
     title: 'Accept payments in any currency',
     descriptions: [
       'Take payment in Naira, Cedi, Rand, Shilling, USDC, USDT, and more.',
     ],
-    note: 'Market tools',
-    imageSrc: '/images/feat/payment-currency.png',
+    imageSrc: '/images/feat/payment-currency.webp',
     imageAlt: 'GreepPay merchant market screen',
-    imageLabel: 'Merchant market app image',
   },
   {
     title: 'Get a business virtual account',
     descriptions: [
       'Receive payments from clients and partners worldwide with a USD, EUR, or GBP account in your business name.',
     ],
-    note: 'Team cards',
-    imageSrc: '/images/feat/business-virtual-account.png',
+    imageSrc: '/images/feat/business-virtual-account.webp',
     imageAlt: 'GreepPay merchant virtual cards',
-    imageLabel: 'Merchant virtual card image',
   },
   {
-    title: '     Instant settlementsin your preferred currency',
+    title: 'Instant settlements in your preferred currency',
     descriptions: [
       'Settle your earnings in USD, EUR, GBP, or your local currency, instantly. No more waiting days for cross-border transfers to clear.',
     ],
-    note: 'Live reporting',
-    imageSrc: '/images/feat/preferred-currency.png',
+    imageSrc: '/images/feat/preferred-currency.webp',
     imageAlt: 'GreepPay merchant reporting screen',
-    imageLabel: 'Merchant reporting app image',
   },
-];
-
-export const stats: Stat[] = [
-  { value: '180+', label: 'Vendors and Merchants' },
-  { value: '52+', label: 'Countries' },
 ];
 
 export const steps: Step[] = [
   {
     title: 'Sign up and Verify',
-    text: 'Download the app, create your account, and complete a quick KYC.',
     isBullet: true,
     descriptions: [
       'Download the app,',
@@ -157,32 +125,30 @@ export const steps: Step[] = [
       'complete a quick KYC.',
     ],
     extraText: 'Most users are verified within minutes.',
-    imageSrc: '/images/steps/image-1.png',
+    imageSrc: '/images/steps/image-1.webp',
     imageAlt: 'Person signing up for GreepPay',
     imageLabel: 'Signup photo',
   },
   {
     title: 'Fund your Wallet',
-    text: 'Top up the way that works for you. Bank transfer, card, or crypto.',
     isBullet: false,
     descriptions: [
       'Top up the way that works for you. ',
       'Bank transfer, card, or crypto.',
     ],
     extraText: 'Your money lands in your wallet, ready to move.',
-    imageSrc: '/images/steps/image-2.png',
+    imageSrc: '/images/steps/image-2.webp',
     imageAlt: 'GreepPay fund wallet app screen',
     imageLabel: 'Fund wallet image',
   },
   {
     title: 'Spend, Send, Save, or Sell',
-    text: 'Create cards, send money, and manage payments instantly.',
     isBullet: false,
     descriptions: [
       'Create cards, send money, and',
       'manage payments instantly.',
     ],
-    imageSrc: '/images/steps/image-3.png',
+    imageSrc: '/images/steps/image-3.webp',
     imageAlt: 'Person using GreepPay after funding wallet',
     imageLabel: 'Spend and send photo',
   },
@@ -266,30 +232,26 @@ export const testimonials: Testimonial[] = [
 export const useCases: UseCase[] = [
   {
     title: 'Paying for products in any store globally',
-    imageSrc: '/images/uses/1.jpg',
+    imageSrc: '/images/uses/1.webp',
     imageAlt: 'Student paying tuition abroad',
     imageLabel: 'Tuition use-case photo',
-    tone: 'neutral',
   },
   {
     title: 'Receiving freelance payments in USD without a US bank',
-    imageSrc: '/images/uses/2.jpg',
+    imageSrc: '/images/uses/2.webp',
     imageAlt: 'Person sending money with GreepPay',
     imageLabel: 'Send money use-case photo',
-    tone: 'warm',
   },
   {
     title: 'Paying for Netflix, Spotify, AWS from your Naira balance',
-    imageSrc: '/images/uses/3.jpg',
+    imageSrc: '/images/uses/3.webp',
     imageAlt: 'Customer paying for products globally',
     imageLabel: 'Products use-case photo',
-    tone: 'mint',
   },
   {
     title: 'Splitting rent with flatmates across three currencies',
-    imageSrc: '/images/uses/6.jpg',
+    imageSrc: '/images/uses/6.webp',
     imageAlt: 'Freelancer receiving USD payments',
     imageLabel: 'Freelance payments photo',
-    tone: 'neutral',
   },
 ];

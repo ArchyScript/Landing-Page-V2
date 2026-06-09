@@ -6,6 +6,7 @@ import BrandLogo from '@/components/common/BrandLogo.vue';
 import IconButton from '@/components/common/IconButton.vue';
 import NavLinkItem from '@/components/common/NavLinkItem.vue';
 import type { NavLink } from '@/data/landing';
+import { DOWNLOAD_URL, EXTERNAL_LINK_TARGET } from '@/data/links';
 import { prefersReducedMotion } from '@/utils/reveal';
 
 defineProps<{
@@ -90,7 +91,7 @@ onBeforeUnmount(() => {
 <template>
   <header
     ref="siteHeader"
-    class="sticky top-0 z-40 border-b border-theme-line/80 bg-white/90 backdrop-blur-[18px]"
+    class="sticky top-0 z-50 w-full border-b border-theme-line/80 bg-white/90 backdrop-blur-[18px]"
   >
     <nav class="container-page flex h-16 items-center justify-between">
       <BrandLogo />
@@ -105,13 +106,18 @@ onBeforeUnmount(() => {
       </div>
 
       <span class="hidden lg:flex">
-        <AppButton class="py-3" icon="download">
+        <AppButton
+          class="py-3"
+          :href="DOWNLOAD_URL"
+          :target="EXTERNAL_LINK_TARGET"
+          icon="download"
+        >
           Download the app
         </AppButton>
       </span>
 
       <IconButton
-        class="lg:hidden cursor-pointer"
+        class="cursor-pointer lg:hidden"
         icon="menu"
         label="Open menu"
         :expanded="mobileMenuOpen"
@@ -120,11 +126,7 @@ onBeforeUnmount(() => {
       />
     </nav>
 
-    <Transition
-      :css="false"
-      @enter="menuEnter"
-      @leave="menuLeave"
-    >
+    <Transition :css="false" @enter="menuEnter" @leave="menuLeave">
       <div
         v-if="mobileMenuOpen"
         id="mobile-menu"
@@ -143,7 +145,7 @@ onBeforeUnmount(() => {
         </div>
 
         <div
-          class="container-page flex min-h-[calc(100vh-4rem)] flex-col items-start pt-18"
+          class="container-page flex min-h-[calc(100vh-4rem)] flex-col items-start pt-8"
         >
           <NavLinkItem
             v-for="link in links"
@@ -157,7 +159,8 @@ onBeforeUnmount(() => {
 
           <AppButton
             class="mobile-menu-item mt-10 bg-[#129b64] text-base"
-            href="#download"
+            :href="DOWNLOAD_URL"
+            :target="EXTERNAL_LINK_TARGET"
             icon="download"
             @click="closeMobileMenu"
           >
@@ -188,5 +191,4 @@ onBeforeUnmount(() => {
     ),
     #fff;
 }
-
 </style>

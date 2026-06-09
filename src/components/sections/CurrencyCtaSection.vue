@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import AppButton from '@/components/common/AppButton.vue';
 import CurrencyMarquee from '@/components/common/CurrencyMarquee.vue';
 import LandingSection from '@/components/common/LandingSection.vue';
-import StoreButton from '@/components/common/StoreButton.vue';
 import PlaceholderImage from '@/components/common/PlaceholderImage.vue';
+import StoreButton from '@/components/common/StoreButton.vue';
 import type { AvailableCurrency } from '@/data/currencies';
+import { DOWNLOAD_URL } from '@/data/links';
 
 withDefaults(
   defineProps<{
@@ -17,13 +17,13 @@ withDefaults(
 </script>
 
 <template>
-  <LandingSection id="currency-cta" class-name="py-12  md:py-16 lg:py-20">
-    <div class="container-page">
+  <LandingSection id="currency-cta">
+    <div class="container-page container-y-padding">
       <div
         class="reveal-item relative min-h-[32rem] overflow-hidden rounded text-white md:min-h-[40rem]"
       >
         <PlaceholderImage
-          photo-url="/images/currency.jpg"
+          photo-url="/images/currency.webp"
           alt="Group of GreepPay users"
           label="Currency belongs here CTA photo"
           tone="green"
@@ -31,7 +31,7 @@ withDefaults(
         />
 
         <div
-          class="relative z-10 min-h-[32rem] md:min-h-[40rem] !h-full w-full bg-black-90 p-6 md:p-8 lg:p-12"
+          class="relative z-10 min-h-[32rem] h-full w-full bg-black-90 p-6 md:min-h-[40rem] md:p-8 lg:p-12"
         >
           <h2
             class="max-w-md text-[1.75rem] font-semibold leading-[1.08] md:text-[2rem] lg:text-[2.25rem]"
@@ -39,7 +39,7 @@ withDefaults(
             Your currency belongs here.
           </h2>
           <p
-            class="my-6 max-w-md text-sm lg:text-base leading-[1.8] text-white/85"
+            class="my-6 max-w-md text-sm leading-[1.8] text-white/85 lg:text-base"
           >
             Join thousands of users already using GreepPay to send, spend, and
             manage money smarter.
@@ -47,7 +47,7 @@ withDefaults(
 
           <div class="w-fit">
             <StoreButton
-              href="https://greep.io/download"
+              :href="DOWNLOAD_URL"
               label="Download GreepPay"
             />
           </div>

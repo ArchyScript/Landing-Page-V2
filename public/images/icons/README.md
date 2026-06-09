@@ -1,20 +1,17 @@
 # Icons
 
-This folder contains exported SVG icon and logo files.
+This folder contains exported SVG interface icons and logo files.
 
-Current files:
-- `greep-logo.svg`: Greep mark only.
-- `greep-ful-logo.svg`: Full GreepPay logo.
-- `sample-ui-icon.svg`: sample exported icon shape.
-- UI icons: `card.svg`, `clock.svg`, `close.svg`, `download.svg`, `greep.svg`, `menu.svg`, `money.svg`, `send.svg`, `wallet.svg`.
+- `greep-ful-logo.svg`: full GreepPay logo.
+- Store icons: `apple.svg`, `google-play.svg`.
+- UI icons: `card.svg`, `clock.svg`, `close.svg`, `download.svg`, `menu.svg`, `money.svg`, `wallet.svg`.
+- `flags/`: currency and country symbols used by the currency marquee.
 
-For interface icons inside Vue components, use the global `<UiIcon />` component:
+Use the global `<UiIcon />` component for reusable interface symbols:
 
 ```vue
-<UiIcon name="wallet" custom-class="w-5 h-5" alt="Wallet" />
-<UiIcon name="download" extension="svg" />
+<UiIcon name="wallet" custom-class="h-5 w-5" alt="Wallet" />
 ```
 
-The component loads icons from `/images/icons/{name}.{extension}`.
-
-Use exported SVG files here when an exact brand asset is needed. Use `<UiIcon />` for reusable UI symbols.
+The component loads `/images/icons/{name}.{extension}` through the configured
+Vite base path.

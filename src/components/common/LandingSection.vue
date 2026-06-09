@@ -18,15 +18,40 @@ withDefaults(
     v-if="reveal"
     v-reveal
     :id="id"
-    :class="['border-b border-theme-line', className]"
+    :class="['landing-section', className]"
   >
     <slot />
   </section>
   <section
     v-else
     :id="id"
-    :class="['border-b border-theme-line', className]"
+    :class="['landing-section', className]"
   >
     <slot />
   </section>
 </template>
+
+<style scoped>
+.landing-section {
+  position: relative;
+}
+
+.landing-section::before,
+.landing-section::after {
+  position: absolute;
+  right: 50%;
+  width: min(calc(100% - 2rem), 72rem);
+  height: 1px;
+  background: var(--color-theme-line);
+  content: '';
+  transform: translateX(50%);
+}
+
+.landing-section::before {
+  top: 0;
+}
+
+.landing-section::after {
+  bottom: 0;
+}
+</style>

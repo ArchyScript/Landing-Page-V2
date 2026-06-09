@@ -1,7 +1,7 @@
 <script setup lang="ts">
 defineProps<{
   title: string;
-  links?: Array<{ label: string; href: string }>;
+  links?: Array<{ label: string; href: string; target?: string }>;
 }>();
 </script>
 
@@ -15,6 +15,8 @@ defineProps<{
         :key="link.label"
         class="mt-[0.9rem] block font-semibold text-neutral-100 transition duration-300 ease-smooth hover:text-brand-600"
         :href="link.href"
+        :target="link.target"
+        :rel="link.target === '_blank' ? 'noopener noreferrer' : undefined"
       >
         {{ link.label }}
       </a>

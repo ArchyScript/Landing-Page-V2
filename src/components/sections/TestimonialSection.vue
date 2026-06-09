@@ -59,8 +59,8 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <LandingSection id="testimonials" class-name="py-12  md:py-16 lg:py-20">
-    <div class="container-page">
+  <LandingSection id="testimonials">
+    <div class="container-page container-y-padding">
       <SectionIntro
         eyebrow="Trusted by thousands of users managing their money smarter."
         green-text="Loved by people"

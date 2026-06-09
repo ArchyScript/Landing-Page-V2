@@ -15,7 +15,6 @@ import {
   individualFeatures,
   merchantFeatures,
   navLinks,
-  stats,
   steps,
   testimonials,
   useCases,
@@ -23,12 +22,12 @@ import {
 </script>
 
 <template>
-  <main class="min-h-screen overflow-hidden bg-white text-theme-ink">
+  <main class="min-h-screen overflow-x-clip bg-white text-theme-ink">
     <SiteHeader :links="navLinks" />
 
     <HeroSection />
 
-    <StatsSection :stats="stats" />
+    <StatsSection />
 
     <FeaturesSection
       :individual-features="individualFeatures"

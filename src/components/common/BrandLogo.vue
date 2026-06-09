@@ -7,8 +7,8 @@ withDefaults(
     label?: string;
   }>(),
   {
-    href: "#top",
-    label: "GreepPay",
+    href: '#top',
+    label: 'GreepPay',
   },
 );
 </script>

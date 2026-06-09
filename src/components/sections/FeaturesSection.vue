@@ -70,8 +70,8 @@ const toggleFeature = (index: number) => {
 </script>
 
 <template>
-  <LandingSection id="features" class-name="py-12 md:py-16 lg:py-20">
-    <div class="container-page">
+  <LandingSection id="features">
+    <div class="container-page container-y-padding">
       <SectionIntro
         green-text="Everything You Need."
         title="One App."
@@ -108,10 +108,8 @@ const toggleFeature = (index: number) => {
           :key="`${activeAudience}-${feature.title}`"
           :title="feature.title"
           :descriptions="feature.descriptions"
-          :note="feature.note"
           :image-src="feature.imageSrc"
           :image-alt="feature.imageAlt"
-          :image-label="feature.imageLabel"
           :is-active="activeFeatureIndex === originalIndex"
           :panel-id="`feature-panel-${originalIndex}`"
           @toggle="toggleFeature(originalIndex)"

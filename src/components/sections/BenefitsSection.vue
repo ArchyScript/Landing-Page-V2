@@ -7,7 +7,7 @@ const moneyInMinutes = [
   {
     icon: 'money',
     title: '60 seconds.',
-    description: 'Average transfer time on the Greeppay network.',
+    description: 'Average transfer time on the GreepPay network.',
   },
   {
     icon: 'card',
@@ -23,8 +23,8 @@ const moneyInMinutes = [
 </script>
 
 <template>
-  <LandingSection id="benefits" class-name="py-12  md:py-16 lg:py-20">
-    <div class="container-page">
+  <LandingSection id="benefits">
+    <div class="container-page container-y-padding">
       <SectionIntro
         green-text="Money in Minutes."
         title="Not hours or Days."
@@ -33,13 +33,13 @@ const moneyInMinutes = [
 
       <div
         data-gsap-stagger
-        class="reveal-item delay-1 mt-14 grid overflow-hidden rounded-2xl sm:rounded-3xl bg-primary-100 text-white lg:grid-cols-[0.8fr_1.2fr]"
+        class="reveal-item delay-1 mt-14 grid overflow-hidden rounded-2xl bg-primary-100 text-white sm:rounded-3xl lg:grid-cols-[0.8fr_1.2fr]"
       >
-        <div class="grid gap-6 md:gap-8 lg:gap-12 p-6 lg:p-12">
+        <div class="grid gap-6 p-6 md:gap-8 lg:gap-12 lg:p-12">
           <div
             v-for="(benefit, index) in moneyInMinutes"
             :key="index"
-            class="flex flex-col gap-2 items-start"
+            class="flex flex-col items-start gap-2"
           >
             <UiIcon
               :name="benefit.icon"
@@ -48,7 +48,7 @@ const moneyInMinutes = [
             <h3 class="text-xl font-medium text-white md:text-2xl lg:text-3xl">
               {{ benefit.title }}
             </h3>
-            <p class="text-white text-sm sm:text-base md:text-lg">
+            <p class="text-sm text-white sm:text-base md:text-lg">
               {{ benefit.description }}
             </p>
           </div>
@@ -56,7 +56,7 @@ const moneyInMinutes = [
 
         <div class="min-h-[26rem] overflow-hidden pt-10">
           <PlaceholderImage
-            photo-url="/images/transfer-receipt-phone.png"
+            photo-url="/images/transfer-receipt-phone.webp"
             alt="GreepPay transfer received app screen"
             label="Benefits phone screenshot"
             tone="green"

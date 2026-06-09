@@ -2,11 +2,12 @@
 import BrandLogo from '@/components/common/BrandLogo.vue';
 import LandingSection from '@/components/common/LandingSection.vue';
 import StoreButton from '@/components/common/StoreButton.vue';
+import { DOWNLOAD_URL } from '@/data/links';
 </script>
 
 <template>
-  <LandingSection id="download" class-name="py-12  md:py-16 lg:py-20 text-center">
-    <div class="container-page">
+  <LandingSection id="download" class-name="text-center">
+    <div class="container-page container-y-padding">
       <BrandLogo class="reveal-item mx-auto mb-8" />
 
       <h2
@@ -27,12 +28,12 @@ import StoreButton from '@/components/common/StoreButton.vue';
 
       <div class="reveal-item delay-3 mt-8 flex justify-center gap-4">
         <StoreButton
-          href="https://greep.io/download"
+          :href="DOWNLOAD_URL"
           icon="apple"
           label="App Store"
         />
         <StoreButton
-          href="https://greep.io/download"
+          :href="DOWNLOAD_URL"
           icon="google-play"
           label="Google Play"
         />

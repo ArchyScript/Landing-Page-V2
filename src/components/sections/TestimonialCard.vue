@@ -14,7 +14,7 @@ defineProps<{
     <h3 class="text-lg font-semibold leading-snug text-primary-100">
       "{{ testimonial.quote }}"
     </h3>
-    <p class="mt-6 font-medium text-sm leading-7 text-neutral-100">
+    <p class="mt-6 text-sm font-medium leading-7 text-neutral-100">
       {{ testimonial.text }}
     </p>
     <div class="mt-8 flex items-center justify-between text-sm text-neutral-80">

@@ -1,15 +1,13 @@
 <script setup lang="ts">
 import { nextTick, ref, watch } from 'vue';
 import gsap from 'gsap';
-import FeatureCardVisual from '@/components/sections/FeatureCardVisual.vue';
+import ImageLoader from '@/components/common/ImageLoader.vue';
 
 const props = defineProps<{
   title: string;
   descriptions: string[];
-  note?: string;
   imageSrc?: string;
   imageAlt: string;
-  imageLabel: string;
   isActive: boolean;
   panelId: string;
 }>();
@@ -88,7 +86,6 @@ defineEmits<{ toggle: [] }>();
           fit="cover"
           custom-class="block h-full w-full overflow-hidden rounded-t-2xl"
         />
-        <!-- <FeatureCardVisual :image-src="imageSrc" :image-alt="imageAlt" /> -->
       </div>
     </div>
   </article>

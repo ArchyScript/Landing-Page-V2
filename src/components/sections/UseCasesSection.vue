@@ -5,6 +5,7 @@ import AppButton from '@/components/common/AppButton.vue';
 import LandingSection from '@/components/common/LandingSection.vue';
 import UseCaseCard from '@/components/common/UseCaseCard.vue';
 import type { UseCase } from '@/data/landing';
+import { DOWNLOAD_URL, EXTERNAL_LINK_TARGET } from '@/data/links';
 
 defineProps<{
   useCases: UseCase[];
@@ -33,7 +34,6 @@ onMounted(() => {
       gsap.set(track, { clearProps: 'transform' });
     };
   });
-
 });
 
 onBeforeUnmount(() => {
@@ -43,8 +43,8 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <LandingSection class-name="py-12  md:py-16 lg:py-20">
-    <div class="container-page">
+  <LandingSection>
+    <div class="container-page container-y-padding">
       <div
         class="reveal-item mb-10 flex flex-col justify-between gap-6 lg:flex-row lg:items-center"
       >
@@ -54,7 +54,13 @@ onBeforeUnmount(() => {
           What you'll actually use
           <span class="text-primary-100">Greep</span> for.
         </h2>
-        <AppButton href="#download" class="w-fit"> Download GreepPay </AppButton>
+        <AppButton
+          class="w-fit"
+          :href="DOWNLOAD_URL"
+          :target="EXTERNAL_LINK_TARGET"
+        >
+          Download GreepPay
+        </AppButton>
       </div>
 
       <div
@@ -63,10 +69,7 @@ onBeforeUnmount(() => {
         @pointerup="mobileMarquee?.play()"
         @pointercancel="mobileMarquee?.play()"
       >
-        <div
-          ref="mobileTrack"
-          class="flex w-max will-change-transform"
-        >
+        <div ref="mobileTrack" class="flex w-max will-change-transform">
           <div
             v-for="group in 2"
             :key="group"
@@ -81,7 +84,6 @@ onBeforeUnmount(() => {
               :image-src="useCase.imageSrc"
               :image-alt="useCase.imageAlt"
               :image-label="useCase.imageLabel"
-              :tone="useCase.tone"
             />
           </div>
         </div>
@@ -89,7 +91,7 @@ onBeforeUnmount(() => {
 
       <div
         data-gsap-stagger
-        class="reveal-item delay-1 hidden overflow-hidden border-[0.5px] border-theme-line md:grid md:grid-cols-2 lg:grid-cols-4"
+        class="reveal-item delay-1 hidden overflow-hidden border border-theme-line md:grid md:grid-cols-2 lg:grid-cols-4"
       >
         <UseCaseCard
           v-for="useCase in useCases"
@@ -98,7 +100,6 @@ onBeforeUnmount(() => {
           :image-src="useCase.imageSrc"
           :image-alt="useCase.imageAlt"
           :image-label="useCase.imageLabel"
-          :tone="useCase.tone"
         />
       </div>
     </div>

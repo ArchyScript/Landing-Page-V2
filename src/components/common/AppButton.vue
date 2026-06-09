@@ -1,35 +1,30 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-
-const props = withDefaults(
+withDefaults(
   defineProps<{
     href?: string;
     icon?: string;
-    variant?: 'primary' | 'light' | 'outline';
-    customClass?: string;
+    target?: string;
   }>(),
   {
     href: '#download',
     icon: '',
-    variant: 'primary',
-    customClass: '',
+    target: undefined,
   },
 );
-
-const variantClass = computed(
-  () => 'bg-primary-100 hover:bg-primary',
-);
-
-const iconClass = computed(() => 'h-4 w-4 brightness-0 invert');
 </script>
 
 <template>
   <a
-    class="button-lift inline-flex items-center justify-center gap-2 rounded-lg px-6 py-4 text-sm font-medium leading-5 !text-white transition duration-300 ease-smooth hover:-translate-y-px focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-600/20 disabled:cursor-not-allowed disabled:opacity-50"
-    :class="`${variantClass} ${props.customClass}`"
+    class="button-lift inline-flex items-center justify-center gap-2 rounded-lg bg-primary-100 px-6 py-4 text-sm font-medium leading-5 !text-white transition duration-300 ease-smooth hover:-translate-y-px hover:bg-primary focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-600/20"
     :href="href"
+    :target="target"
+    :rel="target === '_blank' ? 'noopener noreferrer' : undefined"
   >
-    <UiIcon v-if="icon" :name="icon" :custom-class="iconClass" />
+    <UiIcon
+      v-if="icon"
+      :name="icon"
+      custom-class="h-4 w-4 brightness-0 invert"
+    />
     <slot />
   </a>
 </template>

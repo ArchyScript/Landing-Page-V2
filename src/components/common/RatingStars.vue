@@ -17,6 +17,6 @@ withDefaults(
     :aria-label="label"
     role="img"
   >
-    <span v-for="star in count" :key="star" aria-hidden="true">⭐</span>
+    <span v-for="star in count" :key="star" aria-hidden="true">&#9733;</span>
   </span>
 </template>

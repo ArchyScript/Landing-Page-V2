@@ -25,7 +25,7 @@ const modeClass = computed(() =>
 
 <template>
   <a
-    class="font-medium transition duration-300 ease-smooth hover:text-brand-600"
+    class="font-medium transition duration-300 ease-smooth hover:text-neutral-100 hover:underline hover:underline-offset-4"
     :class="modeClass"
     :href="href"
     @click="$emit('click')"

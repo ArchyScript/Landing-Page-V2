@@ -1,6 +1,6 @@
 export type AvailableCurrency = {
   code: string;
-  icon_extension: 'png' | 'svg';
+  icon_extension: 'svg' | 'webp';
   symbol: string;
 };
 
@@ -10,16 +10,16 @@ export const availableCurrencies: AvailableCurrency[] = [
   { code: 'UGX', icon_extension: 'svg', symbol: 'USh' },
   { code: 'GHS', icon_extension: 'svg', symbol: '₵' },
   { code: 'ZAR', icon_extension: 'svg', symbol: 'R' },
-  { code: 'RWF', icon_extension: 'png', symbol: 'RF' },
+  { code: 'RWF', icon_extension: 'webp', symbol: 'RF' },
   { code: 'BIF', icon_extension: 'svg', symbol: 'FBu' },
-  { code: 'XAF', icon_extension: 'png', symbol: 'FCFA' },
+  { code: 'XAF', icon_extension: 'webp', symbol: 'FCFA' },
   { code: 'CDF', icon_extension: 'svg', symbol: 'FC' },
   { code: 'SLE', icon_extension: 'svg', symbol: 'Le' },
   { code: 'XOF', icon_extension: 'svg', symbol: 'FCFA' },
   { code: 'TZS', icon_extension: 'svg', symbol: 'TSh' },
-  { code: 'MWK', icon_extension: 'png', symbol: 'MK' },
+  { code: 'MWK', icon_extension: 'webp', symbol: 'MK' },
   { code: 'MZN', icon_extension: 'svg', symbol: 'MT' },
-  { code: 'BWP', icon_extension: 'png', symbol: 'P' },
+  { code: 'BWP', icon_extension: 'webp', symbol: 'P' },
   { code: 'SZL', icon_extension: 'svg', symbol: 'E' },
   { code: 'EGP', icon_extension: 'svg', symbol: 'E£' },
   { code: 'SLL', icon_extension: 'svg', symbol: 'Le' },

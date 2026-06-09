@@ -111,10 +111,6 @@ onBeforeUnmount(() => {
             :src="iconPath(currency)"
             :alt="group === 1 ? `${currency.code} currency icon` : ''"
           />
-          <!-- <span class="text-sm font-semibold text-white md:text-base">
-            {{ currency.code }}
-          </span>
-          <span class="text-sm text-white/70">{{ currency.symbol }}</span> -->
         </div>
       </div>
     </div>

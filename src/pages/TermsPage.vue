@@ -2,14 +2,16 @@
 import AppButton from '@/components/common/AppButton.vue';
 import BrandLogo from '@/components/common/BrandLogo.vue';
 import { consentItems, savingsDisclosureSections } from '@/data/legal';
+
+const homeHref = import.meta.env.BASE_URL;
 </script>
 
 <template>
   <main class="min-h-screen bg-white text-theme-ink">
     <header class="sticky top-0 z-30 border-b border-theme-line/80 bg-white/95 backdrop-blur-xl">
       <div class="container-page flex h-16 items-center justify-between">
-        <BrandLogo href="/" />
-        <AppButton href="/">Back to homepage</AppButton>
+        <BrandLogo :href="homeHref" />
+        <AppButton :href="homeHref">Back to homepage</AppButton>
       </div>
     </header>
 

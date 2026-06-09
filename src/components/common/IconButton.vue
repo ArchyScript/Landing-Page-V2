@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-  icon: 'menu' | 'close' | 'plus' | 'chevron-down';
+  icon: 'menu' | 'close';
   label: string;
   expanded?: boolean;
   controls?: string;
