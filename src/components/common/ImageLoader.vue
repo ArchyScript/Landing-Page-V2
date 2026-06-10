@@ -77,7 +77,7 @@ onMounted(() => setImage());
   >
     <img
       v-if="loadedImage && !hasError"
-      class="image-loader-media absolute inset-0 h-full w-full opacity-0 transition duration-700 ease-smooth"
+      class="image-loader-media absolute inset-0 z-10 h-full w-full opacity-0 transition duration-700 ease-smooth"
       :class="[
         fit === 'contain'
           ? 'object-contain'
@@ -92,16 +92,27 @@ onMounted(() => setImage());
     />
 
     <div
-      v-if="!source || hasError || !isLoaded"
-      class="image-loader-state relative z-10 grid min-h-48 w-[min(80%,22rem)] place-items-center rounded-[1.25rem] border border-dashed border-theme-ink/25 bg-white/50 p-6 text-center text-theme-ink transition duration-500 ease-smooth"
+      v-if="source && !hasError && !isLoaded"
+      class="image-loader-skeleton absolute inset-0 h-full w-full overflow-hidden bg-brand-50"
+      role="status"
+      :aria-label="alt ? `Loading ${alt}` : 'Loading image'"
+    >
+      <span class="sr-only">Loading image</span>
+    </div>
+
+    <div
+      v-else-if="!source || hasError"
+      class="image-loader-state absolute inset-0 grid h-full min-h-[inherit] w-full place-items-center bg-brand-50/95 p-6 text-center text-theme-ink"
       role="img"
       :aria-label="alt"
     >
-      <UiIcon name="wallet" variant="soft" />
-      <span class="text-base font-bold">{{ label }}</span>
-      <small class="text-theme-muted">{{
-        hasError ? 'Image failed to load' : 'Replace with exported image'
-      }}</small>
+      <div class="grid max-w-xs place-items-center gap-3">
+        <UiIcon name="wallet" variant="soft" />
+        <span class="text-base font-bold">{{ label }}</span>
+        <small class="text-theme-muted">
+          {{ hasError ? 'Image failed to load' : 'Replace with exported image' }}
+        </small>
+      </div>
     </div>
 
     <slot />
@@ -144,14 +155,24 @@ onMounted(() => setImage());
   opacity: 1;
 }
 
+.image-loader-skeleton::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 25%,
+    rgb(255 255 255 / 0.72) 45%,
+    rgb(255 255 255 / 0.9) 50%,
+    transparent 70%
+  );
+  content: '';
+  transform: translateX(-100%);
+  animation: image-skeleton-shimmer 1.45s ease-in-out infinite;
+}
+
 .image-loader:hover .image-loader-media.is-loaded {
   filter: saturate(1.04);
   transform: scale(1.025);
-}
-
-.image-loader:hover .image-loader-state {
-  border-color: rgb(31 107 79 / 0.5);
-  transform: translateY(-3px);
 }
 
 .image-preview {
@@ -161,5 +182,17 @@ onMounted(() => setImage());
 
 .image-preview-close {
   top: max(1rem, env(safe-area-inset-top));
+}
+
+@keyframes image-skeleton-shimmer {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image-loader-skeleton::after {
+    animation: none;
+  }
 }
 </style>
