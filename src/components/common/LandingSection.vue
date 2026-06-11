@@ -36,10 +36,6 @@ withDefaults(
   position: relative;
 }
 
-.landing-section + .landing-section {
-  margin-top: 3rem;
-}
-
 .landing-section::before,
 .landing-section::after {
   position: absolute;
@@ -56,11 +52,5 @@ withDefaults(
 
 .landing-section::after {
   bottom: 0;
-}
-
-@media (min-width: 768px) {
-  .landing-section + .landing-section {
-    margin-top: 4rem;
-  }
 }
 </style>
