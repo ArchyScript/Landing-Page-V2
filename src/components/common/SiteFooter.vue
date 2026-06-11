@@ -62,7 +62,7 @@ const legalLinks = [
       </footer>
 
       <p
-        class="mt-12 border-t border-theme-line pt-8 text-center text-sm text-theme-muted"
+        class="-mx-4 mt-12 border-t border-theme-line pt-8 text-center text-sm text-theme-muted md:-mx-5 lg:-mx-6"
       >
         &copy; 2026 GreepPay. All rights reserved.
       </p>
