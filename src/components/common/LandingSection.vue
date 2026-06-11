@@ -43,12 +43,11 @@ withDefaults(
 .landing-section::before,
 .landing-section::after {
   position: absolute;
-  right: 50%;
-  width: min(calc(100% - 2rem), 72rem);
+  right: 0;
+  left: 0;
   height: 1px;
   background: var(--color-theme-line);
   content: '';
-  transform: translateX(50%);
 }
 
 .landing-section::before {
