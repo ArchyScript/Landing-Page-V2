@@ -24,15 +24,18 @@ defineProps<{
       />
     </div>
 
-    <h3 class="mt-6 text-lg font-bold text-black md:text-xl">
-      <span class="pr-2 text-[#129b64]">{{ index + 1 }}</span>{{ title }}
+    <h3
+      class="mt-6 text-lg sm:text-xl font-semibold text-neutral-100 md:text-2xl"
+    >
+      <span class="pr-2 text-[#129b64]">{{ index + 1 }}</span> {{ title }}
     </h3>
 
     <div v-if="descriptions" class="pt-2">
       <p
         v-for="(description, descriptionIndex) in descriptions"
         :key="descriptionIndex"
-        class="text-sm leading-7 text-neutral-80 lg:text-base lg:leading-8"
+        class="text-sm leading-7 text-neutral-80 font-medium lg:text-base lg:leading-8"
+        :class="{ 'pl-2': isBullet }"
       >
         <span v-if="isBullet" class="mr-1 text-xl">&bull;</span>
         {{ description }}

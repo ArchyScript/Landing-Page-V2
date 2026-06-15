@@ -55,13 +55,13 @@ onBeforeUnmount(() => {
   <LandingSection id="top" :reveal="false" class-name="bg-[#f7f7f7]">
     <div ref="heroRoot" class="container-page container-y-padding text-center">
       <span
-        class="hero-pill hero-animate inline-flex max-w-full whitespace-nowrap rounded-full border border-neutral-50 bg-white px-2 py-2 text-[10px] font-medium text-black min-[400px]:px-3 min-[400px]:text-xs sm:px-4 sm:text-sm"
+        class="hero-pill hero-animate inline-flex max-w-full whitespace-wrap rounded-full border border-neutral-50 bg-white px-2 py-2 text-[10px] font-medium text-black min-[400px]:px-3 min-[400px]:text-xs sm:px-4 sm:text-sm"
       >
         Supports over 30+ African currencies & your USDT/USDC
       </span>
 
       <h1
-        class="hero-title hero-animate mx-auto mt-8 max-w-4xl font-display font-semibold text-neutral-100 sm:mt-12"
+        class="hero-title hero-animate mx-auto mt-8 max-w-4xl font-display font-extrabold text-neutral-100 sm:mt-12"
       >
         <span
           class="block whitespace-nowrap text-[2rem] leading-none min-[480px]:text-[2.5rem] md:text-[3.25rem] lg:text-[4rem]"
@@ -85,7 +85,7 @@ onBeforeUnmount(() => {
             class="h-10 w-10 shrink-0 rounded-full object-cover min-[480px]:h-12 min-[480px]:w-12 sm:h-[60px] sm:w-[60px]"
           />
           <strong
-            class="whitespace-nowrap text-[1.25rem] font-semibold leading-none text-white min-[480px]:text-[1.5rem] md:text-[2.25rem] lg:text-[2.5rem]"
+            class="whitespace-nowrap text-[1.25rem] font-extrabold leading-none text-white min-[480px]:text-[1.5rem] md:text-[2.25rem] lg:text-[2.5rem]"
           >
             ANYWHERE!
           </strong>
@@ -93,7 +93,7 @@ onBeforeUnmount(() => {
       </h1>
 
       <p
-        class="hero-copy hero-animate mx-auto mt-10 md:mt-12 max-w-[32rem] text-sm md:text-base leading-7 text-neutral-90 sm:mt-8 px-4 md:px-10"
+        class="hero-copy hero-animate mx-auto mt-10 md:mt-12 max-w-3xl text-base md:text-lg lg:text-xl leading-7 text-neutral-90 sm:mt-8 px-4 md:px-10 font-medium"
       >
         No need to convert your African currency when you leave your country,
         download Greep pay. Top-up your wallet, send money home, and spend
@@ -101,7 +101,7 @@ onBeforeUnmount(() => {
       </p>
 
       <AppButton
-        class="hero-cta hero-animate mt-4 md:mt-12 px-8 py-4 text-sm sm:mt-8"
+        class="hero-cta hero-animate mt-4 sm:mt-8 md:mt-12 px-8 py-4 text-sm"
         :href="DOWNLOAD_URL"
         :target="EXTERNAL_LINK_TARGET"
       >
@@ -109,7 +109,7 @@ onBeforeUnmount(() => {
       </AppButton>
 
       <div
-        class="hero-device hero-animate mx-auto mt-16 grid h-[24rem] sm:h-[28rem] md:h-[32rem] lg:h-[36rem] items-start justify-items-center overflow-hidden sm:mt-14 lg:mt-20"
+        class="hero-device hero-animate mx-auto mt-16 grid h-[22rem] sm:h-[24rem] md:h-[28rem] lg:h-[30rem] items-start justify-items-center overflow-hidden sm:mt-14 lg:mt-20 rounded-4xl"
       >
         <ImageLoader
           photo-url="/images/home-green-bg.webp"

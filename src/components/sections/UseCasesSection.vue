@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref } from 'vue';
+import { nextTick, onBeforeUnmount, onMounted, ref } from 'vue';
 import gsap from 'gsap';
 import AppButton from '@/components/common/AppButton.vue';
 import LandingSection from '@/components/common/LandingSection.vue';
@@ -7,55 +7,53 @@ import UseCaseCard from '@/components/common/UseCaseCard.vue';
 import type { UseCase } from '@/data/landing';
 import { DOWNLOAD_URL, EXTERNAL_LINK_TARGET } from '@/data/links';
 
-defineProps<{
+const props = defineProps<{
   useCases: UseCase[];
 }>();
 
-const mobileTrack = ref<HTMLElement>();
-let mobileMarquee: gsap.core.Tween | undefined;
-let mobileMedia: gsap.MatchMedia | undefined;
+const marquee = ref<HTMLElement>();
+const track = ref<HTMLElement>();
+let marqueeContext: gsap.Context | undefined;
+let marqueeTween: gsap.core.Tween | undefined;
 
-onMounted(() => {
-  const track = mobileTrack.value;
-  if (!track) return;
+const pause = () => marqueeTween?.pause();
+const play = () => marqueeTween?.play();
+
+onMounted(async () => {
+  await nextTick();
+  if (!marquee.value || !track.value) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  mobileMedia = gsap.matchMedia();
-  mobileMedia.add('(max-width: 767px)', () => {
-    mobileMarquee = gsap.to(track, {
+  marqueeContext = gsap.context(() => {
+    marqueeTween = gsap.to(track.value!, {
       xPercent: -50,
-      duration: 26,
+      duration: 50,
       ease: 'none',
       repeat: -1,
     });
-
-    return () => {
-      mobileMarquee?.kill();
-      gsap.set(track, { clearProps: 'transform' });
-    };
-  });
+  }, marquee.value);
 });
 
 onBeforeUnmount(() => {
-  mobileMedia?.revert();
-  mobileMarquee?.kill();
+  marqueeContext?.revert();
 });
 </script>
 
 <template>
   <LandingSection>
-    <div class="container-page container-y-padding">
+    <div class="container- page !px -0">
       <div
-        class="reveal-item mb-10 flex flex-col justify-between gap-6 lg:flex-row lg:items-center"
+        class="container-page py-10 md:py-12 lg:py-14 reveal-item flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between border-b border-border-neutral"
       >
         <h2
-          class="max-w-[30rem] font-display text-[1.75rem] font-semibold leading-tight text-black md:text-[2rem] lg:text-[2.25rem]"
+          class="max-w-3xl font-display text-[1.9rem] font-bold leading-[0.98] text-black sm:text-[2.2rem] lg:text-[2.95rem]"
         >
-          What you'll actually use
-          <span class="text-primary-100">Greep</span> for.
+          What you'll actually<br />
+          use <span class="text-primary-100">Greep</span> for.
         </h2>
+
         <AppButton
-          class="w-fit"
+          class="w-fit px-5 py-3 text-[0.82rem] font-medium"
           :href="DOWNLOAD_URL"
           :target="EXTERNAL_LINK_TARGET"
         >
@@ -63,45 +61,55 @@ onBeforeUnmount(() => {
         </AppButton>
       </div>
 
-      <div
-        class="-mx-4 overflow-hidden px-4 md:hidden"
-        @pointerdown="mobileMarquee?.pause()"
-        @pointerup="mobileMarquee?.play()"
-        @pointercancel="mobileMarquee?.play()"
-      >
-        <div ref="mobileTrack" class="flex w-max will-change-transform">
+      <div class="container-page pb-10 md:pb-12 lg:pb-14">
+        <div
+          ref="marquee"
+          class="reveal-item delay-1 -mx-4 overflow-hidden border- b border-border-neutral md:-mx -5 lg:-mx-6 xl:mx-0"
+          @mouseenter="pause"
+          @mouseleave="play"
+        >
           <div
-            v-for="group in 2"
-            :key="group"
-            class="flex shrink-0 gap-4 pr-4"
-            :aria-hidden="group === 2"
+            ref="track"
+            data-gsap-stagger
+            class="use-case-track flex w-max will-change-transform"
           >
-            <UseCaseCard
-              v-for="useCase in useCases"
-              :key="`${group}-${useCase.title}`"
-              class="w-[78vw] max-w-sm shrink-0"
-              :title="useCase.title"
-              :image-src="useCase.imageSrc"
-              :image-alt="useCase.imageAlt"
-              :image-label="useCase.imageLabel"
-            />
+            <div
+              v-for="group in 2"
+              :key="group"
+              class="flex shrink-0"
+              :aria-hidden="group === 2"
+            >
+              <UseCaseCard
+                v-for="useCase in props.useCases"
+                :key="`${group}-${useCase.title}`"
+                class="use-case-card w-[78vw] max-w-[19rem] shrink-0 sm:w-[20rem] md:w-[18.5rem] lg:w-[19.5rem] xl:w-[13.15rem]"
+                :title="useCase.title"
+                :image-src="useCase.imageSrc"
+                :image-alt="group === 1 ? useCase.imageAlt : ''"
+                :image-label="useCase.imageLabel"
+              />
+            </div>
           </div>
         </div>
-      </div>
-
-      <div
-        data-gsap-stagger
-        class="reveal-item delay-1 hidden overflow-hidden border border-theme-line md:grid md:grid-cols-2 lg:grid-cols-4"
-      >
-        <UseCaseCard
-          v-for="useCase in useCases"
-          :key="useCase.title"
-          :title="useCase.title"
-          :image-src="useCase.imageSrc"
-          :image-alt="useCase.imageAlt"
-          :image-label="useCase.imageLabel"
-        />
       </div>
     </div>
   </LandingSection>
 </template>
+
+<style scoped>
+.use-case-track {
+  scrollbar-width: none;
+}
+
+.use-case-track::-webkit-scrollbar {
+  display: none;
+}
+
+.use-case-card {
+  margin-left: -1px;
+}
+
+.use-case-card:first-child {
+  margin-left: 0;
+}
+</style>

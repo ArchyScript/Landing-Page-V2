@@ -3,13 +3,16 @@
 @theme {
   --color-primary: #0a8b56;
   --color-primary-100: #0d965e;
+  --color-primary-light: #5ac29a;
 
   --color-neutral-50: #d6d6d6;
   --color-neutral-50-50: #d6d6d650;
+  --color-neutral-60: #a5a5a5;
   --color-neutral-70: #767676;
   --color-neutral-80: #575757;
   --color-neutral-90: #434343;
   --color-neutral-100: #080808;
+
   --color-black-90: #00000090;
   --color-brand: #1f6b4f;
   --color-brand-50: #eefaf4;
@@ -35,20 +38,23 @@
   --color-border-dark: #d9d9d9;
   --color-border-neutral: #e6e6e6;
 
-  --font-sans: Poppins, Inter, ui-sans-serif, system-ui, sans-serif;
-  --font-display: Poppins, Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Inter', ui-sans-serif, system-ui, sans-serif;
   --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
 
-  --text-xs: 0.7rem;
-  --text-sm: 0.8rem;
-  --text-base: 0.9rem;
-  --text-lg: 1rem;
-  --text-xl: 1.125rem;
-  --text-2xl: 1.35rem;
-  --text-3xl: 1.65rem;
-  --text-4xl: 2rem;
-  --text-5xl: 2.5rem;
-  --text-6xl: 3rem;
+  --text-xs: 0.8rem; /* 12.8px */
+  --text-sm: 0.9rem; /* 14.4px */
+  --text-base: 1rem; /* 16px */
+  --text-lg: 1.125rem; /* 18px */
+  --text-xl: 1.25rem; /* 20px */
+  --text-2xl: 1.5rem; /* 24px */
+  --text-3xl: 1.875rem; /* 30px */
+  --text-4xl: 2.25rem; /* 36px */
+  --text-5xl: 2.5rem; /* 40px */
+  --text-6xl: 3rem; /* 48px */
+  --text-7xl: 3.75rem;  /* 60px */
+  --text-8xl: 4rem; /* 64px */
+  --text-9xl: 4.5rem; /* 72px */
 }
 
 @utility container-page {

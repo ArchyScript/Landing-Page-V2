@@ -11,7 +11,7 @@ import { DOWNLOAD_URL } from '@/data/links';
       <BrandLogo class="reveal-item mx-auto mb-8" />
 
       <h2
-        class="reveal-item delay-1 mx-auto max-w-4xl font-display text-[1.75rem] font-semibold leading-tight text-black sm:text-[2rem] lg:text-[2.5rem]"
+        class="reveal-item delay-1 mx-auto max-w-4xl font-display text-[2rem] font-bold leading-tight text-neutral-100 sm:text-[2.25rem] lg:text-[2.75rem]"
       >
         Join the Future of
         <span class="text-primary-100">African Payments;</span><br />
@@ -27,11 +27,7 @@ import { DOWNLOAD_URL } from '@/data/links';
       </p>
 
       <div class="reveal-item delay-3 mt-8 flex justify-center gap-4">
-        <StoreButton
-          :href="DOWNLOAD_URL"
-          icon="apple"
-          label="App Store"
-        />
+        <StoreButton :href="DOWNLOAD_URL" icon="apple" label="App Store" />
         <StoreButton
           :href="DOWNLOAD_URL"
           icon="google-play"

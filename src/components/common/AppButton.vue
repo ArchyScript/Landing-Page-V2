@@ -15,7 +15,7 @@ withDefaults(
 
 <template>
   <a
-    class="button-lift inline-flex items-center justify-center gap-2 rounded-lg bg-primary-100 px-6 py-4 text-sm font-medium leading-5 !text-white transition duration-300 ease-smooth hover:-translate-y-px hover:bg-primary focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-600/20"
+    class="button-lift inline-flex items-center justify-center gap-2 rounded-md bg-primary-100 px-6 py-3 md:px-7 md:py-4 text-sm font-medium leading-5 !text-white transition duration-300 ease-smooth ring ring-primary-light"
     :href="href"
     :target="target"
     :rel="target === '_blank' ? 'noopener noreferrer' : undefined"

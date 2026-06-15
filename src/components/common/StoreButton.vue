@@ -15,7 +15,7 @@ withDefaults(
 
 <template>
   <a
-    class="flex min-w-34 w-fit select-none items-center rounded-md border border-border-dark bg-theme-surface px-4 py-[0.85rem] text-sm font-medium text-neutral-100 transition duration-300 ease-smooth hover:bg-theme-canvas focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-100"
+    class="flex min-w-34 w-fit text-sm select-none items-center rounded-md border border-border-dark bg-theme-surface px-4 py-[0.85rem] font-medium text-neutral-100 transition duration-300 ease-smooth hover:bg-theme-canvas focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-100"
     :href="href"
     :target="target"
     rel="noopener noreferrer"

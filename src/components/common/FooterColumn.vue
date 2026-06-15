@@ -7,13 +7,13 @@ defineProps<{
 
 <template>
   <div>
-    <h3 class="mb-5 font-medium text-neutral-80">{{ title }}</h3>
+    <h3 class="mb-5 py-[2px] font-medium text-neutral-80">{{ title }}</h3>
 
     <template v-if="links">
       <a
         v-for="link in links"
         :key="link.label"
-        class="mt-[0.9rem] block font-semibold text-neutral-100 transition duration-300 ease-smooth hover:text-brand-600"
+        class="mb-4 block font-semibold text-neutral-100 transition duration-300 ease-smooth hover:text-brand-600"
         :href="link.href"
         :target="link.target"
         :rel="link.target === '_blank' ? 'noopener noreferrer' : undefined"

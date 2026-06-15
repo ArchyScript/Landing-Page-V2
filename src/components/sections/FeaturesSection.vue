@@ -1,15 +1,20 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, nextTick, onMounted, ref, watch } from 'vue';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import LandingSection from '@/components/common/LandingSection.vue';
 import SectionIntro from '@/components/common/SectionIntro.vue';
 import FeatureCard from '@/components/sections/FeatureCard.vue';
 import type { Audience, Feature } from '@/data/landing';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const props = defineProps<{
   individualFeatures: Feature[];
   merchantFeatures: Feature[];
 }>();
 
+const cardsRoot = ref<HTMLElement>();
 const activeAudience = ref<Audience>('individual');
 const activeFeatureIndex = ref(props.individualFeatures.length - 1);
 const featureOrder = ref(
@@ -67,6 +72,23 @@ const toggleFeature = (index: number) => {
   featureOrder.value = nextOrder;
   activeFeatureIndex.value = index;
 };
+
+const refreshStackLayout = async () => {
+  await nextTick();
+  ScrollTrigger.refresh();
+};
+
+onMounted(() => {
+  void refreshStackLayout();
+});
+
+watch(activeAudience, () => {
+  void refreshStackLayout();
+});
+
+watch(featureOrder, () => {
+  void refreshStackLayout();
+});
 </script>
 
 <template>
@@ -79,15 +101,15 @@ const toggleFeature = (index: number) => {
       />
 
       <div
-        class="reveal-item delay-1 mx-auto mt-10 grid max-w-md grid-cols-2 bg-theme-muted-bg border-[0.5px] border-neutral-50-50 rounded-lg p-1"
+        class="reveal-item delay-1 mx-auto mt-10 grid max-w-fit grid-cols-2 bg-theme-muted-bg border-[0.5px] border-neutral-50-50 rounded-lg p-1"
       >
         <button
           v-for="audience in audiences"
           :key="audience.value"
-          class="rounded-md px-4 py-3 text-sm text-neutral-100 transition duration-300 cursor-pointer ease-smooth"
+          class="rounded-md w-41 px-4 py-3 text-sm font-medium text-[#080808] transition duration-300 cursor-pointer ease-smooth !outline-none"
           type="button"
           :class="{
-            'bg-white text-theme-ink shadow-[0_6px_40px_rgb(16_35_29_/_0.06)]':
+            'bg-white   !border-[0.5px] border-[#E6E6E670]  ':
               activeAudience === audience.value,
           }"
           @click="setAudience(audience.value)"
@@ -100,17 +122,19 @@ const toggleFeature = (index: number) => {
         id="cards"
         name="feature-list"
         tag="div"
+        ref="cardsRoot"
         data-gsap-stagger
-        class="reveal-item delay-2 mt-12 flex flex-col"
+        class="reveal-item delay-2 mt-12 flex flex-col gap-4 lg:gap-5"
       >
         <FeatureCard
-          v-for="{ feature, originalIndex } in orderedFeatures"
+          v-for="({ feature, originalIndex }, orderIndex) in orderedFeatures"
           :key="`${activeAudience}-${feature.title}`"
           :title="feature.title"
           :descriptions="feature.descriptions"
           :image-src="feature.imageSrc"
           :image-alt="feature.imageAlt"
           :is-active="activeFeatureIndex === originalIndex"
+          :stack-index="orderIndex"
           :panel-id="`feature-panel-${originalIndex}`"
           @toggle="toggleFeature(originalIndex)"
         />

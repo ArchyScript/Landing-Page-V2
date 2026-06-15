@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { nextTick, ref, watch } from 'vue';
+import { computed, nextTick, ref, watch } from 'vue';
 import gsap from 'gsap';
 import ImageLoader from '@/components/common/ImageLoader.vue';
 
@@ -9,10 +9,17 @@ const props = defineProps<{
   imageSrc?: string;
   imageAlt: string;
   isActive: boolean;
+  stackIndex: number;
   panelId: string;
 }>();
 
 const featureVisual = ref<HTMLElement>();
+const stickyTop = computed(() => {
+  const clampedIndex = Math.min(props.stackIndex, 3);
+  return {
+    top: `calc(4.5rem + ${clampedIndex * 0.8}rem)`,
+  };
+});
 
 watch(
   () => props.isActive,
@@ -43,10 +50,11 @@ defineEmits<{ toggle: [] }>();
 <template>
   <article
     :id="panelId"
-    class="feature-card relative cursor-pointer overflow-hidden rounded-xl md:rounded-2xl lg:rounded-3xl border border-theme-line bg-white shadow-[0_18px_60px_rgb(16_35_29_/_0.07)] focus:outline-none focus-visible:shadow-[inset_0_0_0_3px_rgb(31_107_79_/_0.28)]"
+    class="feature-card sticky relative cursor-pointer overflow-hidden rounded-xl border border-theme-line bg-white shadow-[0_18px_60px_rgb(16_35_29_/_0.07)] focus:outline-none focus-visible:shadow-[inset_0_0_0_3px_rgb(31_107_79_/_0.28)] md:rounded-2xl lg:rounded-3xl"
     :class="{
       'is-active z-10 shadow-[0_24px_80px_rgb(16_35_29_/_0.11)]': isActive,
     }"
+    :style="stickyTop"
     role="button"
     tabindex="0"
     :aria-expanded="isActive"
@@ -58,18 +66,18 @@ defineEmits<{ toggle: [] }>();
     <div
       class="feature-card-content grid h-[28rem] sm:h-[30rem] md:h-[36rem] lg:grid-cols-[0.38fr_0.62fr]"
     >
-      <div class="p-4 sm:p-6 lg:p-10">
+      <div class="p-4 sm:p-6 lg:p-10 ">
         <h3
-          class="text-lg sm:text-xl lg:text-2xl font-semibold leading-tight text-neutral-100"
+          class="text-xl lg:text-3xl font-semibold leading-6 text-neutral-100"
         >
           {{ title }}
         </h3>
 
-        <div class="mt-2 sm:mt-3 max-w-sm">
+        <div class="mt-3 sm:mt-4 max-w-sm">
           <p
             v-for="(description, index) in descriptions"
             :key="index"
-            class="text-xs sm:text-base lg:text-lg leading-5 sm:leading-6 text-neutral-800"
+            class="text-xs sm:text-base lg:text-lg leading-5 sm:leading-6 text-neutral-80 font-medium"
           >
             {{ description }}
           </p>
@@ -93,39 +101,29 @@ defineEmits<{ toggle: [] }>();
 
 <style scoped>
 .feature-card {
-  max-height: 7.5rem;
-  margin-top: -2rem;
   transition:
-    max-height 700ms cubic-bezier(0.22, 1, 0.36, 1),
-    margin 550ms cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 350ms cubic-bezier(0.22, 1, 0.36, 1),
     transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.feature-card:first-child {
-  margin-top: 0;
+  will-change: transform;
 }
 
 .feature-card:hover {
   transform: translateY(-2px);
 }
 
-.feature-card.is-active {
-  max-height: 40rem;
-  margin-bottom: 2rem;
-}
-
 @media (max-width: 1023px) {
   .feature-card {
-    max-height: 7.25rem;
-  }
-
-  .feature-card.is-active {
-    max-height: 52rem;
+    top: auto;
   }
 
   .feature-card-content {
     grid-template-rows: auto minmax(20rem, 1fr);
+  }
+}
+
+@media (min-width: 640px) {
+  .feature-card {
+    top: unset;
   }
 }
 </style>

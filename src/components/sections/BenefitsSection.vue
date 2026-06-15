@@ -35,7 +35,7 @@ const moneyInMinutes = [
         data-gsap-stagger
         class="reveal-item delay-1 mt-14 grid overflow-hidden rounded-2xl bg-primary-100 text-white sm:rounded-3xl lg:grid-cols-[0.8fr_1.2fr]"
       >
-        <div class="grid gap-6 p-6 md:gap-8 lg:gap-12 lg:p-12">
+        <div class="grid gap-10 p-6 md:gap-12 lg:gap-16 lg:p-12">
           <div
             v-for="(benefit, index) in moneyInMinutes"
             :key="index"
@@ -45,16 +45,16 @@ const moneyInMinutes = [
               :name="benefit.icon"
               custom-class="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8"
             />
-            <h3 class="text-xl font-medium text-white md:text-2xl lg:text-3xl">
+            <h3 class="text-xl font-bold text-white md:text-2xl lg:text-3xl">
               {{ benefit.title }}
             </h3>
-            <p class="text-sm text-white sm:text-base md:text-lg">
+            <p class="text-sm text-white font-medium sm:text-base md:text-lg">
               {{ benefit.description }}
             </p>
           </div>
         </div>
 
-        <div class="min-h-[26rem] overflow-hidden pt-10">
+        <div class="min-h-[26rem] overflow-hidden pt-10 md:pl-10 lg:pl-14">
           <PlaceholderImage
             photo-url="/images/transfer-receipt-phone.webp"
             alt="GreepPay transfer received app screen"

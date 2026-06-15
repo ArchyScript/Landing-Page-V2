@@ -18,12 +18,13 @@
   --color-state-success: #129b64;
   --color-state-warning: #f4b740;
   --color-state-danger: #e5484d;
-  --font-family-sans: Poppins, Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-family-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
 
   color: var(--color-theme-ink);
   background: var(--color-theme-canvas);
   font-family: var(--font-family-sans);
+  font-optical-sizing: auto;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

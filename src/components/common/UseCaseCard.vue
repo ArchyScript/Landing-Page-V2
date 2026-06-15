@@ -11,15 +11,15 @@ defineProps<{
 
 <template>
   <article
-    class="grid min-h-fit border border-theme-line transition duration-300 ease-smooth hover:-translate-y-0.5"
+    class="grid min-h-fit snap-start grid-rows-[7.8rem_13rem] bg-white transition duration-300 ease-smooth sm:grid-rows-[8.2rem_14rem] lg:grid-rows-[9.2rem_13.5rem] xl:grid-rows-[9.5rem_14.5rem]"
   >
     <h3
-      class="p-8 text-lg font-semibold leading-6 text-neutral-100 md:p-8 md:text-xl md:leading-8"
+      class="flex !border-[0.1px] border-[#D9D9D980] items-start px-4 py-4 text-[1rem] font-semibold leading-[1.24] text-neutral-100 sm:px-5 sm:py-5 lg:px-6 lg:py-6 lg:text-[1.02rem]"
     >
       {{ title }}
     </h3>
 
-    <div class="min-h-[18rem]">
+    <div class="min-h-0 overflow-hidden">
       <ImageLoader
         :photo-url="imageSrc"
         :src="imageSrc"

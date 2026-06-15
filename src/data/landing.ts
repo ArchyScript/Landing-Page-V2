@@ -231,27 +231,33 @@ export const testimonials: Testimonial[] = [
 
 export const useCases: UseCase[] = [
   {
-    title: 'Paying for products in any store globally',
-    imageSrc: '/images/uses/1.webp',
+    title: 'Paying tuition abroad without losing 8% to FX',
+    imageSrc: '/images/uses/5.webp',
     imageAlt: 'Student paying tuition abroad',
     imageLabel: 'Tuition use-case photo',
   },
   {
-    title: 'Receiving freelance payments in USD without a US bank',
-    imageSrc: '/images/uses/2.webp',
+    title: 'Sending money home in 60 seconds',
+    imageSrc: '/images/uses/4.webp',
     imageAlt: 'Person sending money with GreepPay',
     imageLabel: 'Send money use-case photo',
   },
   {
-    title: 'Paying for Netflix, Spotify, AWS from your Naira balance',
-    imageSrc: '/images/uses/3.webp',
+    title: 'Paying for products in any store globally',
+    imageSrc: '/images/uses/1.webp',
     imageAlt: 'Customer paying for products globally',
     imageLabel: 'Products use-case photo',
   },
   {
-    title: 'Splitting rent with flatmates across three currencies',
-    imageSrc: '/images/uses/6.webp',
+    title: 'Receiving freelance payments in USD without a US bank',
+    imageSrc: '/images/uses/2.webp',
     imageAlt: 'Freelancer receiving USD payments',
     imageLabel: 'Freelance payments photo',
+  },
+  {
+    title: 'Paying for Netflix, Spotify, AWS from your Naira balance',
+    imageSrc: '/images/uses/3.webp',
+    imageAlt: 'Customer paying for online subscriptions',
+    imageLabel: 'Subscriptions use-case photo',
   },
 ];

@@ -34,13 +34,11 @@ withDefaults(
           class="relative z-10 min-h-[32rem] h-full w-full bg-black-90 p-6 md:min-h-[40rem] md:p-8 lg:p-12"
         >
           <h2
-            class="max-w-md text-[1.75rem] font-semibold leading-[1.08] md:text-[2rem] lg:text-[2.25rem]"
+            class="max-w-lg font-semibold leading-[1.08] text-5xl lg:text-6xl"
           >
             Your currency belongs here.
           </h2>
-          <p
-            class="my-6 max-w-md text-sm leading-[1.8] text-white/85 lg:text-base"
-          >
+          <p class="my-6 max-w-md text-base leading-7 text-white/85 lg:text-lg">
             Join thousands of users already using GreepPay to send, spend, and
             manage money smarter.
           </p>
@@ -49,7 +47,7 @@ withDefaults(
             <StoreButton
               :href="DOWNLOAD_URL"
               label="Download GreepPay"
-              custom-class="!text-neutral-100"
+              custom-class="!text-neutral-100 !min-w-[170px]"
             />
           </div>
         </div>

@@ -23,9 +23,9 @@ const productLinks = [
 ];
 
 const socialLinks = [
-  { label: 'Twitter', href: '#' },
-  { label: 'LinkedIn', href: '#' },
-  { label: 'Instagram', href: '#' },
+  { label: 'Twitter', href: 'https://x.com/Greeppay' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/showcase/greep-pay/' },
+  { label: 'Instagram', href: 'https://instagram.com/greeppay' },
 ];
 
 const legalLinks = [
@@ -52,20 +52,21 @@ const legalLinks = [
         <FooterColumn title="Product" :links="productLinks" />
         <FooterColumn title="Stay Connected" :links="socialLinks" />
         <FooterColumn title="Find Us">
-          <p class="font-bold text-black">
-            23 Alhaji Kosoko St, opposite Justrite, Ojodu, Lagos 102109,
-            Nigeria
+          <p class="font-semibold text-neutral-100">
+            23 Alhaji Kosoko St, opposite Justrite, Ojodu, Lagos 102109, Nigeria
           </p>
-          <p class="mt-4 font-bold text-black">support@greeppay.com</p>
+          <p class="mt-4 font-semibold  text-neutral-100">
+            support@greeppay.com
+          </p>
         </FooterColumn>
         <FooterColumn title="Legal" :links="legalLinks" />
       </footer>
-
-      <p
-        class="-mx-4 mt-12 border-t border-theme-line pt-8 text-center text-sm text-theme-muted md:-mx-5 lg:-mx-6"
-      >
-        &copy; 2026 GreepPay. All rights reserved.
-      </p>
     </div>
+
+    <p
+      class="-mx-4 py-10 border-t border-theme-line pt-8 text-center font-medium text-sm text-neutral-60 md:-mx-5 lg:-mx-6"
+    >
+      &copy; 2026 GreepPay. All rights reserved.
+    </p>
   </LandingSection>
 </template>
