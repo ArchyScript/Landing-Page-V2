@@ -7,7 +7,7 @@ import ImageLoader from '@/components/common/ImageLoader.vue';
   <LandingSection>
     <div class="container-page container-y-padding flex flex-col gap-8">
       <h2
-        class="max-w-[29rem] -mt-10 py-2 font-display text-[2.45rem] font-bold leading-[0.96] tracking-normal text-neutral-100"
+        class="-mt-8 max-w-[29rem] font-display text-4xl font-bold leading-[1.08] text-neutral-100 sm:text-5xl lg:text-6xl"
       >
         Trusted by <span class="text-primary-100">4000+</span> Africans in the
         diaspora
