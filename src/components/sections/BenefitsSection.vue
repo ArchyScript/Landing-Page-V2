@@ -25,11 +25,20 @@ const moneyInMinutes = [
 <template>
   <LandingSection id="benefits">
     <div class="container-page container-y-padding">
-      <SectionIntro
-        green-text="Money in Minutes."
-        title="Not hours or Days."
-        subtitle="One app for how Africans actually move money across borders. Send, spend, save, sell."
-      />
+      <SectionIntro green-text="Money in Minutes." title="Not hours or Days.">
+        <template #subtitle>
+          <p
+            class="mx-auto mt-4 text-base font-medium leading-6 text-neutral-70 sm:mt-5 sm:text-lg sm:leading-7"
+          >
+            One app for how Africans actually move money across borders.
+          </p>
+          <p
+            class="mx-auto mt-1 text-base font-medium leading-6 text-neutral-70 sm:text-lg sm:leading-7"
+          >
+            Send, spend, save, sell.
+          </p>
+        </template>
+      </SectionIntro>
 
       <div
         data-gsap-stagger
@@ -39,18 +48,20 @@ const moneyInMinutes = [
           <div
             v-for="(benefit, index) in moneyInMinutes"
             :key="index"
-            class="flex flex-col items-start gap-2"
+            class="flex flex-col items-start gap-4"
           >
             <UiIcon
               :name="benefit.icon"
               custom-class="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8"
             />
-            <h3 class="text-xl font-bold text-white md:text-2xl lg:text-3xl">
-              {{ benefit.title }}
-            </h3>
-            <p class="text-sm text-white font-medium sm:text-base md:text-lg">
-              {{ benefit.description }}
-            </p>
+            <div class="flex flex-col items-start gap-2">
+              <h3 class="text-xl font-bold text-white md:text-2xl lg:text-3xl">
+                {{ benefit.title }}
+              </h3>
+              <p class="text-sm text-white font-medium md:text-base">
+                {{ benefit.description }}
+              </p>
+            </div>
           </div>
         </div>
 

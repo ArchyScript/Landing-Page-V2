@@ -14,12 +14,9 @@ const props = defineProps<{
 }>();
 
 const featureVisual = ref<HTMLElement>();
-const stickyTop = computed(() => {
-  const clampedIndex = Math.min(props.stackIndex, 3);
-  return {
-    top: `calc(4.5rem + ${clampedIndex * 0.8}rem)`,
-  };
-});
+const stickyTop = computed(() => ({
+  top: '4.5rem',
+}));
 
 watch(
   () => props.isActive,
@@ -66,9 +63,9 @@ defineEmits<{ toggle: [] }>();
     <div
       class="feature-card-content grid h-[28rem] sm:h-[30rem] md:h-[36rem] lg:grid-cols-[0.38fr_0.62fr]"
     >
-      <div class="p-4 sm:p-6 lg:p-10 ">
+      <div class="p-4 sm:p-6 lg:p-10">
         <h3
-          class="text-xl lg:text-3xl font-semibold leading-6 text-neutral-100"
+          class="text-xl lg:text-3xl font-semibold leading-8 text-neutral-100"
         >
           {{ title }}
         </h3>
@@ -77,7 +74,7 @@ defineEmits<{ toggle: [] }>();
           <p
             v-for="(description, index) in descriptions"
             :key="index"
-            class="text-xs sm:text-base lg:text-lg leading-5 sm:leading-6 text-neutral-80 font-medium"
+            class="text-sm md:text-base leading-6 sm:leading-6 text-neutral-80 font-medium"
           >
             {{ description }}
           </p>
@@ -107,13 +104,9 @@ defineEmits<{ toggle: [] }>();
   will-change: transform;
 }
 
-.feature-card:hover {
-  transform: translateY(-2px);
-}
-
 @media (max-width: 1023px) {
   .feature-card {
-    top: auto;
+    top: 4.25rem;
   }
 
   .feature-card-content {

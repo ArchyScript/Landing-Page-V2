@@ -41,7 +41,7 @@ onBeforeUnmount(() => {
 
 <template>
   <LandingSection>
-    <div class="container- page !px -0">
+    <div  >
       <div
         class="container-page py-10 md:py-12 lg:py-14 reveal-item flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between border-b border-border-neutral"
       >

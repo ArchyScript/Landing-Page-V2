@@ -18,7 +18,7 @@ defineProps<{
 
     <slot name="title">
       <h2
-        class="mt-4 font-display text-4xl font-bold leading-[1.08] text-neutral-100 sm:text-5xl lg:text-6xl"
+        class="mt-4 font-display text-4xl font-bold leading-12 text-neutral-100 sm:text-5xl lg:text-6xl"
       >
         <span v-if="greenText" class="text-primary-100">{{ greenText }}</span>
         <template v-if="greenText"><br /></template>

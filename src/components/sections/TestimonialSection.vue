@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { nextTick, onBeforeUnmount, onMounted, ref } from "vue";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import LandingSection from "@/components/common/LandingSection.vue";
-import SectionIntro from "@/components/common/SectionIntro.vue";
-import TestimonialCard from "@/components/sections/TestimonialCard.vue";
-import type { Testimonial } from "@/data/landing";
+import { nextTick, onBeforeUnmount, onMounted, ref } from 'vue';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import LandingSection from '@/components/common/LandingSection.vue';
+import SectionIntro from '@/components/common/SectionIntro.vue';
+import TestimonialCard from '@/components/sections/TestimonialCard.vue';
+import type { Testimonial } from '@/data/landing';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,10 +20,10 @@ onMounted(async () => {
   await nextTick();
   if (!testimonialGrid.value) return;
 
-  const cards = testimonialGrid.value.querySelectorAll(".testimonial-card");
+  const cards = testimonialGrid.value.querySelectorAll('.testimonial-card');
 
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    gsap.set(cards, { clearProps: "all" });
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    gsap.set(cards, { clearProps: 'all' });
     return;
   }
 
@@ -41,11 +41,11 @@ onMounted(async () => {
         scale: 1,
         duration: 0.72,
         stagger: 0.08,
-        ease: "power3.out",
-        clearProps: "opacity,visibility,transform",
+        ease: 'power3.out',
+        clearProps: 'opacity,visibility,transform',
         scrollTrigger: {
           trigger: testimonialGrid.value,
-          start: "top 82%",
+          start: 'top 82%',
           once: true,
         },
       },
@@ -66,7 +66,16 @@ onBeforeUnmount(() => {
         green-text="Loved by people"
         title="who want more control over their money"
         subtitle="Thousands of users rely on GreepPay for faster payments, smarter cards, and smoother finances."
-      />
+      >
+        <template #subtitle>
+          <p
+            class="mx-auto mt-4 text-base max-w-[480px] font-medium leading-6 text-neutral-70 sm:mt-5 sm:text-lg sm:leading-7"
+          >
+            Thousands of users rely on GreepPay for faster payments, smarter
+            cards, and a smoother way to manage their finances.
+          </p>
+        </template>
+      </SectionIntro>
 
       <div
         ref="testimonialGrid"

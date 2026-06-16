@@ -170,11 +170,6 @@ onMounted(() => setImage());
   animation: image-skeleton-shimmer 1.45s ease-in-out infinite;
 }
 
-.image-loader:hover .image-loader-media.is-loaded {
-  filter: saturate(1.04);
-  transform: scale(1.025);
-}
-
 .image-preview {
   padding: max(1.5rem, env(safe-area-inset-top)) 1.5rem
     max(1.5rem, env(safe-area-inset-bottom));

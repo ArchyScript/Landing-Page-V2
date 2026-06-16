@@ -34,7 +34,7 @@ defineProps<{
       <p
         v-for="(description, descriptionIndex) in descriptions"
         :key="descriptionIndex"
-        class="text-sm leading-7 text-neutral-80 font-medium lg:text-base lg:leading-8"
+        class="text-sm leading-6 text-neutral-80 font-medium lg:text-base lg:leading-8"
         :class="{ 'pl-2': isBullet }"
       >
         <span v-if="isBullet" class="mr-1 text-xl">&bull;</span>
@@ -42,7 +42,10 @@ defineProps<{
       </p>
     </div>
 
-    <p v-if="extraText" class="mt-3 leading-[1.7] text-neutral-80">
+    <p
+      v-if="extraText"
+      class="mt-3 text-sm leading-6 text-neutral-80 font-medium lg:text-base lg:leading-8"
+    >
       {{ extraText }}
     </p>
   </article>

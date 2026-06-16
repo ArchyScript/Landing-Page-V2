@@ -94,22 +94,31 @@ watch(featureOrder, () => {
 <template>
   <LandingSection id="features">
     <div class="container-page container-y-padding">
-      <SectionIntro
-        green-text="Everything You Need."
-        title="One App."
-        subtitle="One app for how Africans actually move money across borders. Send, spend, save, sell."
-      />
+      <SectionIntro green-text="Everything You Need." title="One App.">
+        <template #subtitle>
+          <p
+            class="mx-auto mt-4 text-base font-medium leading-6 text-neutral-70 sm:mt-5 sm:text-lg sm:leading-7"
+          >
+            One app for how Africans actually move money across borders.
+          </p>
+          <p
+            class="mx-auto mt-1 text-base font-medium leading-6 text-neutral-70 sm:text-lg sm:leading-7"
+          >
+            Send, spend, save, sell.
+          </p>
+        </template>
+      </SectionIntro>
 
       <div
-        class="reveal-item delay-1 mx-auto mt-10 grid max-w-fit grid-cols-2 bg-theme-muted-bg border-[0.5px] border-neutral-50-50 rounded-lg p-1"
+        class="reveal-item delay-1 mx-auto mt-10 grid max-w-fit grid-cols-2 rounded-lg border border-neutral-50/60 bg-theme-muted-bg p-1"
       >
         <button
           v-for="audience in audiences"
           :key="audience.value"
-          class="rounded-md w-41 px-4 py-3 text-sm font-medium text-[#080808] transition duration-300 cursor-pointer ease-smooth !outline-none"
+          class="w-[10rem] rounded-md px-4 py-3 text-sm font-medium text-neutral-100 transition duration-300 ease-smooth cursor-pointer focus:outline-none sm:w-[11rem]"
           type="button"
           :class="{
-            'bg-white   !border-[0.5px] border-[#E6E6E670]  ':
+            'border border-neutral-50/70 bg-white shadow-[0_6px_24px_rgb(16_35_29_/_0.06)]':
               activeAudience === audience.value,
           }"
           @click="setAudience(audience.value)"
@@ -119,6 +128,7 @@ watch(featureOrder, () => {
       </div>
 
       <TransitionGroup
+        :key="activeAudience"
         id="cards"
         name="feature-list"
         tag="div"
