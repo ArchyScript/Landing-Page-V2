@@ -96,16 +96,12 @@ watch(featureOrder, () => {
     <div class="container-page container-y-padding">
       <SectionIntro green-text="Everything You Need." title="One App.">
         <template #subtitle>
-          <p
-            class="mx-auto mt-4 text-base font-medium leading-6 text-neutral-70 sm:mt-5 sm:text-lg sm:leading-7"
+          <div
+            class="mx-auto max-w-[520px] mt-4 text-base font-medium leading-6 text-neutral-70 sm:mt-5 sm:text-lg sm:leading-7"
           >
-            One app for how Africans actually move money across borders.
-          </p>
-          <p
-            class="mx-auto mt-1 text-base font-medium leading-6 text-neutral-70 sm:text-lg sm:leading-7"
-          >
-            Send, spend, save, sell.
-          </p>
+            From daily payments to lifestyle essentials, GreepPay brings every
+            transaction and service into one powerful app.
+          </div>
         </template>
       </SectionIntro>
 
